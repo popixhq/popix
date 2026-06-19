@@ -1,0 +1,150 @@
+// Sample/representative case studies. Replace names + numbers with your real
+// client work before launch. Count mirrors the reference site (11 studies).
+
+export const caseStudies = [
+  {
+    slug: "lumen-skincare",
+    client: "Lumen Skincare",
+    industry: "Beauty & Skincare",
+    service: "Social + Performance",
+    summary: "Scaled a clean-beauty DTC brand from launch to 7-figure revenue with creator-led social and disciplined paid media.",
+    result: "4.1x ROAS",
+    metrics: [
+      { k: "4.1x", v: "blended ROAS" },
+      { k: "+260%", v: "revenue in 9 months" },
+      { k: "-31%", v: "cost per acquisition" },
+    ],
+  },
+  {
+    slug: "northbeam-saas",
+    client: "Northbeam",
+    industry: "B2B SaaS",
+    service: "B2B SEO",
+    summary: "Built a pipeline-driven SEO engine that took a B2B analytics platform to page one for its highest-intent terms.",
+    result: "+210% MQLs",
+    metrics: [
+      { k: "+210%", v: "organic MQLs" },
+      { k: "x3", v: "page-one keywords" },
+      { k: "5:1", v: "pipeline-to-cost" },
+    ],
+  },
+  {
+    slug: "verde-grocers",
+    client: "Verde Grocers",
+    industry: "Retail",
+    service: "Local SEO",
+    summary: "Took a 40-store grocery chain to the top of the local map pack across every neighborhood it serves.",
+    result: "Top 3 map pack",
+    metrics: [
+      { k: "+120%", v: "profile actions" },
+      { k: "Top 3", v: "map pack rankings" },
+      { k: "4.8★", v: "avg. rating" },
+    ],
+  },
+  {
+    slug: "altura-motors",
+    client: "Altura Motors",
+    industry: "Automotive",
+    service: "Performance Marketing",
+    summary: "Filled the showroom calendar with qualified test-drive bookings through localized lead-gen funnels.",
+    result: "-44% cost/lead",
+    metrics: [
+      { k: "-44%", v: "cost per lead" },
+      { k: "+180%", v: "test drives booked" },
+      { k: "2.3x", v: "showroom footfall" },
+    ],
+  },
+  {
+    slug: "cirrus-fintech",
+    client: "Cirrus",
+    industry: "Fintech",
+    service: "Web App Development",
+    summary: "Designed and built a customer dashboard that cut support tickets and lifted activation for a growing fintech.",
+    result: "-37% tickets",
+    metrics: [
+      { k: "99.9%", v: "uptime" },
+      { k: "-37%", v: "support tickets" },
+      { k: "+28%", v: "activation rate" },
+    ],
+  },
+  {
+    slug: "harbor-realty",
+    client: "Harbor Realty",
+    industry: "Real Estate",
+    service: "Lead Generation",
+    summary: "Sold out two residential launches ahead of schedule with project campaigns and high-converting landing pages.",
+    result: "2 sold-out launches",
+    metrics: [
+      { k: "+300%", v: "qualified leads" },
+      { k: "-29%", v: "cost per site visit" },
+      { k: "2", v: "sold-out launches" },
+    ],
+  },
+  {
+    slug: "pulse-health",
+    client: "Pulse Health",
+    industry: "Healthcare",
+    service: "Local SEO + Ads",
+    summary: "Grew patient acquisition for a multi-clinic network while staying fully compliant.",
+    result: "+150% bookings",
+    metrics: [
+      { k: "+150%", v: "appointment bookings" },
+      { k: "Top 3", v: "local rankings" },
+      { k: "4.9★", v: "patient rating" },
+    ],
+  },
+  {
+    slug: "kairo-travel",
+    client: "Kairo Travel",
+    industry: "Travel",
+    service: "Brand Video + Social",
+    summary: "Turned wanderlust into bookings with a destination film series and always-on social.",
+    result: "+2x bookings",
+    metrics: [
+      { k: "2x", v: "direct bookings" },
+      { k: "9M", v: "video views" },
+      { k: "+58%", v: "social following" },
+    ],
+  },
+  {
+    slug: "forge-industrial",
+    client: "Forge Industrial",
+    industry: "B2B Manufacturing",
+    service: "Website + SEO",
+    summary: "Rebuilt a dated industrial site into a fast, lead-generating asset that ranks.",
+    result: "+64% conversions",
+    metrics: [
+      { k: "98", v: "Lighthouse score" },
+      { k: "+64%", v: "conversion rate" },
+      { k: "+90%", v: "organic traffic" },
+    ],
+  },
+  {
+    slug: "bloom-fmcg",
+    client: "Bloom Foods",
+    industry: "Food & FMCG",
+    service: "360° Campaign",
+    summary: "Launched a new snack line with an integrated brand and quick-commerce push.",
+    result: "1M units sold",
+    metrics: [
+      { k: "1M+", v: "units sold" },
+      { k: "12M", v: "campaign reach" },
+      { k: "+45%", v: "quick-commerce sales" },
+    ],
+  },
+  {
+    slug: "voltic-ev",
+    client: "Voltic EV",
+    industry: "Electric Vehicles",
+    service: "Launch Campaign",
+    summary: "Built category awareness and a waitlist for an EV startup's flagship launch.",
+    result: "25k waitlist",
+    metrics: [
+      { k: "25k", v: "waitlist sign-ups" },
+      { k: "18M", v: "launch reach" },
+      { k: "-33%", v: "cost per sign-up" },
+    ],
+  },
+];
+
+export const getCaseStudy = (slug) => caseStudies.find((c) => c.slug === slug);
