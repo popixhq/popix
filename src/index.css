@@ -12,6 +12,10 @@
   ::selection {
     @apply bg-brand text-white;
   }
+  /* The Apps section runs a light theme; toggle body bg so overscroll matches. */
+  body.apps-theme {
+    @apply bg-[#F4F6FB] text-[#0E1525];
+  }
 }
 
 @layer components {

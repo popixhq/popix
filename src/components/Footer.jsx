@@ -39,6 +39,7 @@ export default function Footer() {
             links={[
               { to: "/about", label: "About" },
               { to: "/case-studies", label: "Work" },
+              { to: "/apps", label: "Apps" },
               { to: "/careers", label: "Careers" },
               { to: "/blog", label: "Blog" },
               { to: "/contact", label: "Contact" },

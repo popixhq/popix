@@ -17,6 +17,7 @@ export const mainNav = [
   { label: "Services", to: "/services", mega: true },
   { label: "Industries", to: "/industries" },
   { label: "Work", to: "/case-studies" },
+  { label: "Apps", to: "/apps" },
   { label: "About", to: "/about" },
   { label: "Careers", to: "/careers" },
   { label: "Blog", to: "/blog" },

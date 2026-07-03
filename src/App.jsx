@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -17,13 +17,36 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
+import AppsLayout from "./apps/AppsLayout";
+import AppsIndex from "./apps/AppsIndex";
+import AppLanding from "./apps/AppLanding";
+
+// Dark agency layout (default site)
+function SiteLayout() {
+  return (
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <>
       <ScrollToTop />
-      <Navbar />
-      <main className="min-h-screen">
-        <Routes>
+      <Routes>
+        {/* Apps section — its own light layout */}
+        <Route path="/apps" element={<AppsLayout />}>
+          <Route index element={<AppsIndex />} />
+          <Route path=":slug" element={<AppLanding />} />
+        </Route>
+
+        {/* Main agency site */}
+        <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesIndex />} />
@@ -37,9 +60,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
-      <Footer />
+        </Route>
+      </Routes>
     </>
   );
 }
