@@ -1,5 +1,6 @@
 {
   "name": "popix",
+  "account_id": "087c4a00a1649f55d6002930ddf50784",
   "compatibility_date": "2025-06-01",
   "assets": {
     "directory": "./dist",
