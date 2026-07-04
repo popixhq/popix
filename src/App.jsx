@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -20,6 +21,7 @@ import NotFound from "./pages/NotFound";
 import AppsLayout from "./apps/AppsLayout";
 import AppsIndex from "./apps/AppsIndex";
 import AppLanding from "./apps/AppLanding";
+import { IS_APPS_HOST, IS_LOCAL } from "./apps/appBase";
 
 // Dark agency layout (default site)
 function SiteLayout() {
@@ -34,18 +36,50 @@ function SiteLayout() {
   );
 }
 
-export default function App() {
+// On the main domain, /apps/* now lives on the subdomain — send visitors there.
+function AppsRedirect() {
+  useEffect(() => {
+    const rest = window.location.pathname.replace(/^\/apps/, "") || "/";
+    window.location.replace("https://apps.popixhq.com" + rest + window.location.search);
+  }, []);
+  return <div className="min-h-[60vh]" />;
+}
+
+// apps.popixhq.com → the Apps section mounted at the root.
+function AppsSite() {
   return (
     <>
       <ScrollToTop />
       <Routes>
-        {/* Apps section — its own light layout */}
-        <Route path="/apps" element={<AppsLayout />}>
+        <Route element={<AppsLayout />}>
           <Route index element={<AppsIndex />} />
           <Route path=":slug" element={<AppLanding />} />
+          <Route path="*" element={<AppsIndex />} />
         </Route>
+      </Routes>
+    </>
+  );
+}
 
-        {/* Main agency site */}
+// popixhq.com → the agency site (with /apps redirecting to the subdomain,
+// except on localhost where we mount it at /apps for local development).
+function MainSite() {
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        {IS_LOCAL ? (
+          <Route path="/apps" element={<AppsLayout />}>
+            <Route index element={<AppsIndex />} />
+            <Route path=":slug" element={<AppLanding />} />
+          </Route>
+        ) : (
+          <>
+            <Route path="/apps" element={<AppsRedirect />} />
+            <Route path="/apps/*" element={<AppsRedirect />} />
+          </>
+        )}
+
         <Route element={<SiteLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -64,4 +98,8 @@ export default function App() {
       </Routes>
     </>
   );
+}
+
+export default function App() {
+  return IS_APPS_HOST ? <AppsSite /> : <MainSite />;
 }

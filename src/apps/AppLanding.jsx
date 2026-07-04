@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { getApp, apps } from "./appsData";
 import { Squircle, PhoneMockup, PlayButton, DottedCanvas } from "./AppsUI";
+import { appLink } from "./appBase";
 import Reveal from "../components/Reveal";
 
 function Faq({ q, a, accent }) {
@@ -42,7 +43,7 @@ export default function AppLanding() {
     return (
       <div className="mx-auto max-w-6xl px-5 py-28 text-center sm:px-8">
         <h1 className="font-bricolage text-3xl font-bold">App not found</h1>
-        <Link to="/apps" className="mt-6 inline-block rounded-2xl bg-[#0E1525] px-6 py-3 text-sm font-semibold text-white">
+        <Link to={appLink()} className="mt-6 inline-block rounded-2xl bg-[#0E1525] px-6 py-3 text-sm font-semibold text-white">
           Back to all apps
         </Link>
       </div>
@@ -59,7 +60,7 @@ export default function AppLanding() {
         <DottedCanvas />
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
           <div>
-            <Link to="/apps" className="text-sm font-medium text-slate-500 hover:text-slate-900">
+            <Link to={appLink()} className="text-sm font-medium text-slate-500 hover:text-slate-900">
               ← All apps
             </Link>
             <div className="mt-6 flex items-center gap-4">
@@ -184,7 +185,7 @@ export default function AppLanding() {
           {others.map((a) => (
             <Link
               key={a.slug}
-              to={`/apps/${a.slug}`}
+              to={appLink(a.slug)}
               className="group flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
             >
               <Squircle glyph={a.glyph} accent={a.accent} size={52} />

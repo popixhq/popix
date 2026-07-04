@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
 import { apps, appCategories } from "./appsData";
 import { Squircle, DottedCanvas } from "./AppsUI";
+import { appLink } from "./appBase";
 
 function Hero() {
   const reduce = useReducedMotion();
@@ -48,7 +49,7 @@ function Hero() {
                 animate={reduce ? {} : { y: [0, -14, 0] }}
                 transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
               >
-                <Link to={`/apps/${a.slug}`} aria-label={a.name}>
+                <Link to={appLink(a.slug)} aria-label={a.name}>
                   <Squircle glyph={a.glyph} accent={a.accent} size={i === 1 ? 108 : 84} />
                 </Link>
               </motion.div>
@@ -63,7 +64,7 @@ function Hero() {
 function AppCard({ app }) {
   return (
     <Link
-      to={`/apps/${app.slug}`}
+      to={appLink(app.slug)}
       className="group relative flex flex-col rounded-3xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="flex items-start justify-between">

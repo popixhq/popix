@@ -48,8 +48,8 @@
   <url><loc>https://popixhq.com/careers</loc><priority>0.5</priority></url>
   <url><loc>https://popixhq.com/blog</loc><priority>0.5</priority></url>
   <url><loc>https://popixhq.com/contact</loc><priority>0.7</priority></url>
-  <url><loc>https://popixhq.com/apps</loc><priority>0.7</priority></url>
-  <url><loc>https://popixhq.com/apps/clipsave</loc><priority>0.6</priority></url>
-  <url><loc>https://popixhq.com/apps/playdeck</loc><priority>0.6</priority></url>
-  <url><loc>https://popixhq.com/apps/echopoem</loc><priority>0.6</priority></url>
+  <url><loc>https://apps.popixhq.com/</loc><priority>0.7</priority></url>
+  <url><loc>https://apps.popixhq.com/clipsave</loc><priority>0.6</priority></url>
+  <url><loc>https://apps.popixhq.com/playdeck</loc><priority>0.6</priority></url>
+  <url><loc>https://apps.popixhq.com/echopoem</loc><priority>0.6</priority></url>
 </urlset>

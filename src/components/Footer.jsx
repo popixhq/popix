@@ -39,7 +39,7 @@ export default function Footer() {
             links={[
               { to: "/about", label: "About" },
               { to: "/case-studies", label: "Work" },
-              { to: "/apps", label: "Apps" },
+              { href: "https://apps.popixhq.com", label: "Apps" },
               { to: "/careers", label: "Careers" },
               { to: "/blog", label: "Blog" },
               { to: "/contact", label: "Contact" },
@@ -80,10 +80,16 @@ function FooterCol({ title, links }) {
       <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-white/40">{title}</p>
       <ul className="space-y-2">
         {links.map((l) => (
-          <li key={l.to}>
-            <Link to={l.to} className="text-sm text-white/60 hover:text-white">
-              {l.label}
-            </Link>
+          <li key={l.to || l.href}>
+            {l.href ? (
+              <a href={l.href} className="text-sm text-white/60 hover:text-white">
+                {l.label}
+              </a>
+            ) : (
+              <Link to={l.to} className="text-sm text-white/60 hover:text-white">
+                {l.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { appLink, MAIN_SITE_URL } from "./appBase";
 
 export default function AppsLayout() {
   // Switch the body background to the light Apps theme while in this section.
@@ -21,7 +22,7 @@ function AppsHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-[#F4F6FB]/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link to="/apps" className="flex items-center gap-2.5">
+        <Link to={appLink()} className="flex items-center gap-2.5">
           <span className="grid h-8 w-8 place-items-center rounded-[0.6rem] bg-[#0E1525] font-bricolage text-sm font-extrabold text-white">
             P
           </span>
@@ -31,7 +32,7 @@ function AppsHeader() {
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <NavLink
-            to="/apps"
+            to={appLink()}
             end
             className={({ isActive }) =>
               `rounded-full px-4 py-2 font-medium transition-colors ${
@@ -42,7 +43,7 @@ function AppsHeader() {
             All apps
           </NavLink>
           <a
-            href="/"
+            href={MAIN_SITE_URL}
             className="rounded-full px-4 py-2 font-medium text-slate-500 transition-colors hover:text-slate-900"
           >
             Agency site ↗
@@ -59,7 +60,7 @@ function AppsFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:px-8">
         <p className="font-bricolage font-semibold text-slate-800">Polished Pixels Apps</p>
         <p>© {new Date().getFullYear()} Polished Pixels · Built with care.</p>
-        <a href="/" className="hover:text-slate-900">
+        <a href={MAIN_SITE_URL} className="hover:text-slate-900">
           popixhq.com
         </a>
       </div>

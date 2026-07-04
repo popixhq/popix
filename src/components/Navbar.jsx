@@ -92,7 +92,15 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-1 lg:flex">
           {mainNav.map((n) =>
-            n.mega ? (
+            n.external ? (
+              <a
+                key={n.label}
+                href={n.href}
+                className="rounded-full px-4 py-2 text-sm font-medium text-white/70 transition-colors hover:text-white"
+              >
+                {n.label}
+              </a>
+            ) : n.mega ? (
               <div
                 key={n.to}
                 className="relative"
@@ -155,15 +163,25 @@ export default function Navbar() {
             className="overflow-hidden border-t border-white/10 bg-ink/95 lg:hidden"
           >
             <div className="wrap flex flex-col gap-1 py-4">
-              {mainNav.map((n) => (
-                <NavLink
-                  key={n.to}
-                  to={n.to}
-                  className="rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/5"
-                >
-                  {n.label}
-                </NavLink>
-              ))}
+              {mainNav.map((n) =>
+                n.external ? (
+                  <a
+                    key={n.label}
+                    href={n.href}
+                    className="rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/5"
+                  >
+                    {n.label}
+                  </a>
+                ) : (
+                  <NavLink
+                    key={n.to}
+                    to={n.to}
+                    className="rounded-lg px-3 py-2.5 text-sm font-medium text-white/80 hover:bg-white/5"
+                  >
+                    {n.label}
+                  </NavLink>
+                )
+              )}
               <Link to="/contact" className="btn-primary mt-2">
                 Get a free audit
               </Link>
