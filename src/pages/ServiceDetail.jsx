@@ -60,8 +60,8 @@ export default function ServiceDetail() {
           <Link to="/contact" className="btn-primary">
             Get a free audit <Icon name="arrow" className="h-4 w-4" />
           </Link>
-          <Link to="/case-studies" className="btn-ghost">
-            See results
+          <Link to="/services" className="btn-ghost">
+            All services
           </Link>
         </div>
       </PageHero>

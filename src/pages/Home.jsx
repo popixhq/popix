@@ -5,7 +5,6 @@ import Icon from "../components/Icon";
 import CTASection from "../components/CTASection";
 import { services } from "../data/services";
 import { industries } from "../data/industries";
-import { caseStudies } from "../data/caseStudies";
 
 const marqueeWords = [
   "Strategy",
@@ -183,44 +182,6 @@ function Approach() {
   );
 }
 
-function FeaturedWork() {
-  const featured = caseStudies.slice(0, 3);
-  return (
-    <section className="wrap py-24">
-      <Reveal>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <span className="eyebrow">Selected work</span>
-            <h2 className="heading mt-4 text-3xl sm:text-4xl">Results we're proud of.</h2>
-          </div>
-          <Link to="/case-studies" className="btn-ghost">
-            All case studies
-          </Link>
-        </div>
-      </Reveal>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {featured.map((c, i) => (
-          <Reveal key={c.slug} delay={i * 0.08}>
-            <Link
-              to={`/case-studies/${c.slug}`}
-              className="group block h-full overflow-hidden rounded-2xl border border-white/10 bg-ink-card"
-            >
-              <div className="flex h-40 items-center justify-center bg-gradient-to-br from-brand/30 to-accent/20">
-                <span className="font-display text-2xl font-bold text-white/90">{c.result}</span>
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-widest text-brand-light">{c.industry}</p>
-                <h3 className="mt-2 font-display text-lg font-semibold">{c.client}</h3>
-                <p className="mt-2 text-sm text-white/60">{c.summary}</p>
-              </div>
-            </Link>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function IndustriesStrip() {
   return (
     <section className="border-t border-white/10 py-24">
@@ -255,7 +216,6 @@ export default function Home() {
       <Marquee />
       <ServicesGrid />
       <Approach />
-      <FeaturedWork />
       <IndustriesStrip />
       <CTASection />
     </>

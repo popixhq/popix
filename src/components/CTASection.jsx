@@ -7,7 +7,7 @@ export default function CTASection({
   title = "Let's build something worth pressing play on.",
   sub = "Book a free 30-minute strategy call and a no-strings audit of your current marketing.",
   primary = { to: "/contact", label: "Get your free audit" },
-  secondary = { to: "/case-studies", label: "See our work" },
+  secondary = { to: "/services", label: "Explore services" },
 }) {
   return (
     <section className="wrap py-20">
