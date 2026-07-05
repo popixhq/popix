@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0B12" />
+      <stop offset="1" stop-color="#14141F" />
+    </linearGradient>
+    <linearGradient id="mk" x1="78" y1="12" x2="24" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#B9C4CC" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
+      <stop stop-color="#7c5cff" stop-opacity="0.28" />
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g transform="translate(360,150) scale(3.2)">
+    <path d="M34 88 V20 C34 14 40 12 48 12 C64 12 72 22 72 33 C72 44 62 52 47 52 H34"
+      fill="none" stroke="url(#mk)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+  <text x="600" y="500" text-anchor="middle" font-family="'Space Grotesk', system-ui, sans-serif"
+    font-size="72" font-weight="700" fill="#FFFFFF">Polished Pixels</text>
+  <text x="600" y="556" text-anchor="middle" font-family="'Inter', system-ui, sans-serif"
+    font-size="30" fill="#A896FF" letter-spacing="1">Digital marketing &amp; creative, polished to perfection.</text>
+</svg>

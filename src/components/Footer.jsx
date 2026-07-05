@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BrandLogo from "./BrandLogo";
 import { company } from "../data/nav";
 import { services } from "../data/services";
 import { industries } from "../data/industries";
@@ -10,9 +11,7 @@ export default function Footer() {
       <div className="wrap py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <span className="font-display text-xl font-bold">
-              Polished<span className="text-brand-light">Pixels</span>
-            </span>
+            <BrandLogo tone="light" height={30} />
             <p className="mt-3 max-w-sm text-sm text-white/60">{company.tagline}</p>
             <p className="mt-4 text-sm text-white/60">
               <a href={`mailto:${company.email}`} className="hover:text-white">

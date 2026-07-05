@@ -4,16 +4,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { mainNav, company } from "../data/nav";
 import { services, serviceGroups } from "../data/services";
 import Icon from "./Icon";
+import BrandLogo from "./BrandLogo";
 
 function Logo() {
   return (
-    <Link to="/" className="flex items-center gap-2.5" aria-label={company.name}>
-      <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-brand to-accent text-ink">
-        <span className="text-lg font-black">P</span>
-      </span>
-      <span className="font-display text-lg font-bold tracking-tight">
-        Polished<span className="text-brand-light">Pixels</span>
-      </span>
+    <Link to="/" className="flex items-center" aria-label={company.name}>
+      <BrandLogo tone="light" height={26} />
     </Link>
   );
 }

@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { getApp, apps } from "./appsData";
 import { Squircle, PhoneMockup, PlayButton, DottedCanvas } from "./AppsUI";
 import { appLink } from "./appBase";
+import { appIcons } from "./appIcons";
+import { useAppSeo } from "./useAppSeo";
 import Reveal from "../components/Reveal";
 
 function Faq({ q, a, accent }) {
@@ -39,6 +41,37 @@ export default function AppLanding() {
   const { slug } = useParams();
   const app = getApp(slug);
 
+  const canonical =
+    typeof window !== "undefined" ? window.location.href : `https://apps.popixhq.com/${slug}`;
+  useAppSeo(
+    app
+      ? {
+          title: `${app.name} — ${app.tagline} | Polished Pixels`,
+          description: app.summary,
+          url: canonical,
+          jsonLd: {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: app.name,
+            operatingSystem: "Android",
+            applicationCategory:
+              ({
+                clipsave: "UtilitiesApplication",
+                playdeck: "GameApplication",
+                echopoem: "EducationalApplication",
+              })[slug] || "MobileApplication",
+            description: app.summary,
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            publisher: {
+              "@type": "Organization",
+              name: "Polished Pixels",
+              url: "https://popixhq.com",
+            },
+          },
+        }
+      : { title: "App not found | Polished Pixels" }
+  );
+
   if (!app) {
     return (
       <div className="mx-auto max-w-6xl px-5 py-28 text-center sm:px-8">
@@ -64,7 +97,7 @@ export default function AppLanding() {
               ← All apps
             </Link>
             <div className="mt-6 flex items-center gap-4">
-              <Squircle glyph={app.glyph} accent={app.accent} size={76} />
+              <Squircle glyph={app.glyph} icon={appIcons[app.slug]} accent={app.accent} size={76} />
               <div>
                 <h1 className="font-bricolage text-4xl font-extrabold leading-none">{app.name}</h1>
                 <p className="mt-1 font-medium text-slate-600">{app.category}</p>
@@ -80,7 +113,7 @@ export default function AppLanding() {
                 <span className="font-bold text-slate-900">{app.installs}</span> installs
               </div>
             </div>
-            <p className="mt-3 text-xs text-slate-500">Android 10+ · Free to download</p>
+            <p className="mt-3 text-xs text-slate-500">{app.android || "Android 10+"} · Free to download</p>
           </div>
 
           <div className="flex justify-center gap-4">
@@ -175,6 +208,14 @@ export default function AppLanding() {
           <div className="mt-7 flex justify-center">
             <PlayButton href={app.playUrl} comingSoon={!live} accent={app.accent} />
           </div>
+          <div className="mt-6">
+            <Link
+              to={`${appLink(app.slug)}/privacy`}
+              className="text-sm font-medium text-white/85 underline underline-offset-4 hover:text-white"
+            >
+              Privacy policy
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -188,7 +229,7 @@ export default function AppLanding() {
               to={appLink(a.slug)}
               className="group flex items-center gap-4 rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
             >
-              <Squircle glyph={a.glyph} accent={a.accent} size={52} />
+              <Squircle glyph={a.glyph} icon={appIcons[a.slug]} accent={a.accent} size={52} />
               <div>
                 <h3 className="font-bricolage font-bold">{a.name}</h3>
                 <p className="text-sm text-slate-500">{a.tagline}</p>

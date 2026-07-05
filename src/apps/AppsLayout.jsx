@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { appLink, MAIN_SITE_URL } from "./appBase";
+import BrandLogo, { LogoMark } from "../components/BrandLogo";
 
 export default function AppsLayout() {
   // Switch the body background to the light Apps theme while in this section.
@@ -22,13 +23,8 @@ function AppsHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-[#F4F6FB]/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link to={appLink()} className="flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-[0.6rem] bg-[#0E1525] font-bricolage text-sm font-extrabold text-white">
-            P
-          </span>
-          <span className="font-bricolage text-lg font-bold tracking-tight">
-            Polished Pixels <span className="text-slate-400">/ Apps</span>
-          </span>
+        <Link to={appLink()} className="flex items-center">
+          <BrandLogo tone="color" height={26} suffix="/ Apps" />
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <NavLink
@@ -58,7 +54,9 @@ function AppsFooter() {
   return (
     <footer className="border-t border-black/5 bg-white">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:px-8">
-        <p className="font-bricolage font-semibold text-slate-800">Polished Pixels Apps</p>
+        <span className="flex items-center gap-2 font-bricolage font-semibold text-slate-800">
+          <LogoMark size={22} tone="color" /> Polished Pixels Apps
+        </span>
         <p>© {new Date().getFullYear()} Polished Pixels · Built with care.</p>
         <a href={MAIN_SITE_URL} className="hover:text-slate-900">
           popixhq.com

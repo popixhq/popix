@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { apps, appCategories } from "./appsData";
 import { Squircle, DottedCanvas } from "./AppsUI";
 import { appLink } from "./appBase";
+import { appIcons } from "./appIcons";
 
 function Hero() {
   const reduce = useReducedMotion();
@@ -50,7 +51,7 @@ function Hero() {
                 transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
               >
                 <Link to={appLink(a.slug)} aria-label={a.name}>
-                  <Squircle glyph={a.glyph} accent={a.accent} size={i === 1 ? 108 : 84} />
+                  <Squircle glyph={a.glyph} icon={appIcons[a.slug]} accent={a.accent} size={i === 1 ? 108 : 84} />
                 </Link>
               </motion.div>
             );
@@ -68,7 +69,7 @@ function AppCard({ app }) {
       className="group relative flex flex-col rounded-3xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="flex items-start justify-between">
-        <Squircle glyph={app.glyph} accent={app.accent} size={60} />
+        <Squircle glyph={app.glyph} icon={appIcons[app.slug]} accent={app.accent} size={60} />
         <span
           className="rounded-full px-2.5 py-1 text-[11px] font-semibold"
           style={{ background: app.accentSoft, color: app.accent }}

@@ -1,7 +1,7 @@
 // Shared building blocks for the Apps section (light theme, per-app accent).
 
 // Squircle app icon with a soft colored glow — the section's signature element.
-export function Squircle({ glyph, accent, size = 72, className = "" }) {
+export function Squircle({ glyph, accent, size = 72, icon = null, className = "" }) {
   return (
     <span
       className={`relative inline-grid shrink-0 place-items-center ${className}`}
@@ -12,17 +12,26 @@ export function Squircle({ glyph, accent, size = 72, className = "" }) {
         className="absolute inset-0 -z-10 blur-xl opacity-50"
         style={{ background: accent, borderRadius: size * 0.42 }}
       />
-      <span
-        className="grid h-full w-full place-items-center font-bricolage font-extrabold text-white"
-        style={{
-          background: `linear-gradient(150deg, ${accent}, ${shade(accent, -18)})`,
-          borderRadius: size * 0.28,
-          fontSize: size * 0.34,
-          boxShadow: "inset 0 2px 6px rgba(255,255,255,.35), 0 10px 24px rgba(2,10,40,.14)",
-        }}
-      >
-        {glyph}
-      </span>
+      {icon ? (
+        <span
+          className="grid h-full w-full place-items-center overflow-hidden"
+          style={{ borderRadius: size * 0.28, boxShadow: "0 10px 24px rgba(2,10,40,.14)" }}
+        >
+          {icon}
+        </span>
+      ) : (
+        <span
+          className="grid h-full w-full place-items-center font-bricolage font-extrabold text-white"
+          style={{
+            background: `linear-gradient(150deg, ${accent}, ${shade(accent, -18)})`,
+            borderRadius: size * 0.28,
+            fontSize: size * 0.34,
+            boxShadow: "inset 0 2px 6px rgba(255,255,255,.35), 0 10px 24px rgba(2,10,40,.14)",
+          }}
+        >
+          {glyph}
+        </span>
+      )}
     </span>
   );
 }
