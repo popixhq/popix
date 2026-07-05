@@ -12,7 +12,7 @@ export default function ServicesIndex() {
       <PageHero
         eyebrow="Services"
         title="Everything you need to grow, under one roof."
-        sub="Strategy, creative, media, and engineering — integrated so your marketing actually compounds instead of working against itself."
+        sub="Strategy, creative, media, and engineering, integrated so your marketing actually compounds instead of working against itself."
       />
 
       <section className="wrap pb-8">

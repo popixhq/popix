@@ -8,7 +8,7 @@ export const services = [
     short: "Social + paid growth that compounds",
     icon: "spark",
     tagline: "Turn scrolls into pipeline.",
-    hero: "We pair always-on social storytelling with performance media that is measured to the last rupee — so every post, every ad, and every rupee of spend ladders up to revenue.",
+    hero: "We pair always-on social storytelling with performance media that is measured to the last rupee, so every post, every ad, and every rupee of spend ladders up to revenue.",
     intro:
       "Social and paid no longer live in separate boxes. We run them as one engine: organic content earns attention and trust, performance campaigns capture and convert it. The result is lower acquisition costs and an audience that actually sticks around.",
     offerings: [
@@ -32,7 +32,7 @@ export const services = [
     ],
     faqs: [
       { q: "Do you handle both content and ads?", a: "Yes. We run organic social and paid performance as one team so creative, targeting, and budget stay aligned." },
-      { q: "Which platforms do you cover?", a: "Meta, Google, YouTube, LinkedIn, X, TikTok and Pinterest — we recommend the mix based on where your buyers are, not where it's trendy." },
+      { q: "Which platforms do you cover?", a: "Meta, Google, YouTube, LinkedIn, X, TikTok and Pinterest, we recommend the mix based on where your buyers are, not where it's trendy." },
       { q: "How soon will we see results?", a: "Paid signals show up in weeks; durable, compounding gains build over 2–3 months as we learn your audience." },
     ],
   },
@@ -42,7 +42,7 @@ export const services = [
     short: "Films, ads & explainers that move people",
     icon: "play",
     tagline: "Stories worth pressing play on.",
-    hero: "From scroll-stopping short form to polished brand films and TV-ready commercials — we write, shoot, and edit video that earns attention and drives action.",
+    hero: "From scroll-stopping short form to polished brand films and TV-ready commercials, we write, shoot, and edit video that earns attention and drives action.",
     intro:
       "Video is the most persuasive medium you have, and the most wasted when it's an afterthought. We treat every frame as a decision: what to say, who says it, and the exact second your viewer feels something. Concept to final cut, in-house.",
     offerings: [
@@ -56,7 +56,7 @@ export const services = [
     process: [
       { t: "Story & script", d: "We find the one idea your audience will remember and build the script around it." },
       { t: "Pre-production", d: "Storyboards, casting, locations, and a shot list so the shoot day runs tight." },
-      { t: "Production", d: "A lean, senior crew captures it right — with directing focused on the edit, not just the day." },
+      { t: "Production", d: "A lean, senior crew captures it right, with directing focused on the edit, not just the day." },
       { t: "Post & delivery", d: "Editing, color, sound, and platform cuts delivered ready to publish." },
     ],
     stats: [
@@ -66,7 +66,7 @@ export const services = [
     ],
     faqs: [
       { q: "Do you write the script too?", a: "Always. Strategy and script are where a video is won or lost, so they're included in every project." },
-      { q: "Can you make platform-specific cuts?", a: "Yes — we deliver aspect ratios and lengths tailored to each channel from a single shoot." },
+      { q: "Can you make platform-specific cuts?", a: "Yes, we deliver aspect ratios and lengths tailored to each channel from a single shoot." },
       { q: "Do you do animation as well as live action?", a: "Both. Many projects blend filmed footage with motion graphics for clarity and polish." },
     ],
   },
@@ -76,7 +76,7 @@ export const services = [
     short: "Own the map and the neighborhood",
     icon: "pin",
     tagline: "Get found where buyers are searching.",
-    hero: "We help multi-location and single-storefront brands dominate local search — from Google Business Profile to map-pack rankings and the reviews that close the deal.",
+    hero: "We help multi-location and single-storefront brands dominate local search, from Google Business Profile to map-pack rankings and the reviews that close the deal.",
     intro:
       "When someone searches 'near me', the business that shows up wins the visit. Local SEO is part technical, part reputation, part relentless consistency. We handle all three so your locations rank, get called, and get visited.",
     offerings: [
@@ -99,7 +99,7 @@ export const services = [
       { k: "4.8★", v: "avg. review rating lift" },
     ],
     faqs: [
-      { q: "Do you manage multiple locations?", a: "Yes — from a single storefront to hundreds of locations with templated, localized landing pages." },
+      { q: "Do you manage multiple locations?", a: "Yes, from a single storefront to hundreds of locations with templated, localized landing pages." },
       { q: "Can you help with bad reviews?", a: "We build a review generation system and a response playbook so the overall rating climbs over time." },
       { q: "How is this different from regular SEO?", a: "Local SEO adds map-pack ranking, profile optimization, and proximity signals on top of classic on-page and links." },
     ],
@@ -112,7 +112,7 @@ export const services = [
     tagline: "Rank for the searches that fill your pipeline.",
     hero: "B2B buying cycles are long, technical, and committee-driven. We build SEO programs that earn rankings for high-intent terms and nurture every stakeholder along the way.",
     intro:
-      "In B2B, ranking #1 for a vanity keyword means nothing if it doesn't move a deal. We reverse-engineer your sales pipeline into a content and technical strategy that targets the exact problems your buyers search — then prove it in revenue, not just rankings.",
+      "In B2B, ranking #1 for a vanity keyword means nothing if it doesn't move a deal. We reverse-engineer your sales pipeline into a content and technical strategy that targets the exact problems your buyers search, then prove it in revenue, not just rankings.",
     offerings: [
       "Pipeline-driven keyword & topic strategy",
       "Technical SEO for complex sites",
@@ -134,7 +134,7 @@ export const services = [
     ],
     faqs: [
       { q: "Can you tie SEO to revenue?", a: "Yes. We connect organic traffic to your CRM so you see pipeline and closed-won, not just sessions." },
-      { q: "Our product is highly technical — can you write about it?", a: "We embed with your subject-matter experts to produce content that's accurate and ranks." },
+      { q: "Our product is highly technical, can you write about it?", a: "We embed with your subject-matter experts to produce content that's accurate and ranks." },
       { q: "How long until B2B SEO pays off?", a: "Expect early wins in 3 months and compounding pipeline impact from 6 months onward." },
     ],
   },
@@ -144,9 +144,9 @@ export const services = [
     short: "Custom web apps, built to scale",
     icon: "code",
     tagline: "From idea to product, engineered right.",
-    hero: "We design and build fast, secure, scalable web applications — customer portals, dashboards, SaaS products, and internal tools that your team and users actually love.",
+    hero: "We design and build fast, secure, scalable web applications, customer portals, dashboards, SaaS products, and internal tools that your team and users actually love.",
     intro:
-      "A web app is a promise that has to keep working every day. We build with modern, maintainable stacks, ship in tight iterations, and obsess over the details — speed, security, and a UX that makes complex things feel simple.",
+      "A web app is a promise that has to keep working every day. We build with modern, maintainable stacks, ship in tight iterations, and obsess over the details, speed, security, and a UX that makes complex things feel simple.",
     offerings: [
       "Custom SaaS & platform development",
       "Customer & partner portals",
@@ -167,7 +167,7 @@ export const services = [
       { k: "40+", v: "apps shipped" },
     ],
     faqs: [
-      { q: "What tech stack do you use?", a: "Modern, well-supported tools — typically React, Node, and managed cloud — chosen to fit the project, not the other way around." },
+      { q: "What tech stack do you use?", a: "Modern, well-supported tools, typically React, Node, and managed cloud, chosen to fit the project, not the other way around." },
       { q: "Can you take over an existing app?", a: "Yes. We audit the codebase, stabilize it, and build a roadmap before adding features." },
       { q: "Do you offer ongoing maintenance?", a: "We offer support retainers covering monitoring, fixes, and continuous improvement." },
     ],
@@ -178,7 +178,7 @@ export const services = [
     short: "Sites that look stunning and convert",
     icon: "layout",
     tagline: "Your best salesperson, online 24/7.",
-    hero: "We design and build marketing websites that are beautiful, blazing fast, and engineered to convert — from corporate sites to ecommerce storefronts and everything between.",
+    hero: "We design and build marketing websites that are beautiful, blazing fast, and engineered to convert, from corporate sites to ecommerce storefronts and everything between.",
     intro:
       "Your website is usually the first real impression and the hardest-working asset you own. We blend brand design, conversion strategy, and clean engineering to ship sites that load fast, rank well, and turn visitors into customers.",
     offerings: [
@@ -201,7 +201,7 @@ export const services = [
       { k: "100%", v: "responsive & accessible" },
     ],
     faqs: [
-      { q: "Which platforms do you build on?", a: "From custom React builds to WordPress, Webflow, and Shopify — we match the platform to your team and goals." },
+      { q: "Which platforms do you build on?", a: "From custom React builds to WordPress, Webflow, and Shopify, we match the platform to your team and goals." },
       { q: "Will I be able to edit it myself?", a: "Yes. We hand over a clean CMS and training so your team can update content without us." },
       { q: "Do you handle SEO during the build?", a: "Technical SEO and performance are baked into every build, not bolted on later." },
     ],

@@ -37,6 +37,23 @@ function Faq({ q, a, accent }) {
   );
 }
 
+// Renders a real screenshot as a rounded device card, or the gradient mockup.
+function Device({ s, floating = false, className = "" }) {
+  if (s.img) {
+    return (
+      <img
+        src={s.img}
+        alt={s.label ? `${s.label} screen` : "App screenshot"}
+        loading="lazy"
+        className={`w-full max-w-[232px] rounded-[1.9rem] border border-black/10 bg-white shadow-2xl ${
+          floating ? "animate-[bob_6s_ease-in-out_infinite]" : ""
+        } ${className}`}
+      />
+    );
+  }
+  return <PhoneMockup {...s} floating={floating} className={className} />;
+}
+
 export default function AppLanding() {
   const { slug } = useParams();
   const app = getApp(slug);
@@ -46,7 +63,7 @@ export default function AppLanding() {
   useAppSeo(
     app
       ? {
-          title: `${app.name} — ${app.tagline} | Polished Pixels`,
+          title: `${app.name}, ${app.tagline} | Polished Pixels`,
           description: app.summary,
           url: canonical,
           jsonLd: {
@@ -88,7 +105,7 @@ export default function AppLanding() {
 
   return (
     <>
-      {/* Hero — tinted with the app's accent */}
+      {/* Hero, tinted with the app's accent */}
       <section className="relative overflow-hidden" style={{ background: app.accentSoft }}>
         <DottedCanvas />
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2">
@@ -117,9 +134,9 @@ export default function AppLanding() {
           </div>
 
           <div className="flex justify-center gap-4">
-            <PhoneMockup {...app.screens[0]} floating />
+            <Device s={app.screens[0]} floating />
             {app.screens[1] && (
-              <PhoneMockup {...app.screens[1]} className="mt-10 hidden sm:block" />
+              <Device s={app.screens[1]} className="mt-10 hidden sm:block" />
             )}
           </div>
         </div>
@@ -169,9 +186,11 @@ export default function AppLanding() {
         <Reveal>
           <h2 className="font-bricolage text-3xl font-bold">Take a look</h2>
         </Reveal>
-        <div className="mt-8 flex flex-wrap justify-center gap-6 sm:justify-start">
-          {app.screens.map((s) => (
-            <PhoneMockup key={s.label} {...s} />
+        <div className="mt-8 flex gap-5 overflow-x-auto pb-4 sm:flex-wrap sm:overflow-visible">
+          {app.screens.map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.06} className="shrink-0">
+              <Device s={s} />
+            </Reveal>
           ))}
         </div>
       </section>

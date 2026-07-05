@@ -71,7 +71,7 @@ export default function Careers() {
               <Link to="/contact" className="text-accent">
                 Send us your portfolio
               </Link>{" "}
-              — we're always meeting great people.
+             , we're always meeting great people.
             </p>
           </Reveal>
         </div>

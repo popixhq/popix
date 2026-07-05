@@ -57,7 +57,7 @@ function Hero() {
           transition={{ duration: 0.6, delay: 0.15 }}
         >
           Polished Pixels blends strategy, creative, and performance to grow ambitious
-          businesses — from SEO and paid media to brand video, social, and web.
+          businesses, from SEO and paid media to brand video, social, and web.
         </motion.p>
 
         <motion.div
@@ -154,7 +154,7 @@ function ServicesGrid() {
 function Approach() {
   const steps = [
     { n: "01", t: "Listen & audit", d: "We dig into your goals, data, and market before proposing a single tactic." },
-    { n: "02", t: "Strategy", d: "A clear plan tied to revenue — not vanity metrics or guesswork." },
+    { n: "02", t: "Strategy", d: "A clear plan tied to revenue, not vanity metrics or guesswork." },
     { n: "03", t: "Create & launch", d: "Creative and campaigns built to perform, shipped fast." },
     { n: "04", t: "Measure & scale", d: "We double down on what works and report it in plain English." },
   ];

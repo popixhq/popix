@@ -16,7 +16,7 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
     if (!ENDPOINT) {
-      // No endpoint configured yet — simulate success for the demo.
+      // No endpoint configured yet, simulate success for the demo.
       setSent(true);
       return;
     }
@@ -96,7 +96,7 @@ export default function Contact() {
                     <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-accent/20 text-accent">
                       <Icon name="check" className="h-7 w-7" />
                     </div>
-                    <h2 className="heading mt-5 text-2xl">Thanks — we got it.</h2>
+                    <h2 className="heading mt-5 text-2xl">Thanks, we got it.</h2>
                     <p className="mt-2 text-white/60">
                       We'll be in touch within one business day.
                     </p>

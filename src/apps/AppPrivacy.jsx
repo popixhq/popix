@@ -38,7 +38,7 @@ export default function AppPrivacy() {
             <Squircle glyph={app.glyph} icon={appIcons[app.slug]} accent={app.accent} size={60} />
             <div>
               <h1 className="font-bricolage text-3xl font-extrabold leading-tight">
-                {app.name} — Privacy Policy
+                {app.name} Privacy Policy
               </h1>
               {p?.updated && (
                 <p className="mt-1 text-sm text-slate-500">Last updated: {p.updated}</p>

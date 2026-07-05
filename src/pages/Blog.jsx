@@ -4,7 +4,7 @@ import PageHero from "../components/PageHero";
 import { stagger, item } from "../components/Reveal";
 import CTASection from "../components/CTASection";
 
-// Placeholder posts — wire to a CMS or markdown later.
+// Placeholder posts, wire to a CMS or markdown later.
 const posts = [
   { t: "How to build a performance marketing engine that compounds", cat: "Performance", read: "7 min" },
   { t: "Local SEO in 2026: the map pack playbook", cat: "SEO", read: "6 min" },
@@ -20,7 +20,7 @@ export default function Blog() {
       <PageHero
         eyebrow="Blog"
         title="Ideas, playbooks & lessons from the work."
-        sub="Practical thinking on growth, creative, and the craft of modern marketing — no fluff."
+        sub="Practical thinking on growth, creative, and the craft of modern marketing, no fluff."
       />
       <section className="wrap pb-12">
         <motion.div

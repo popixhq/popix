@@ -23,7 +23,7 @@ function Hero() {
           </h1>
           <p className="mt-5 max-w-md text-lg text-slate-600">
             A little studio of Android apps built to be fast, private, and a pleasure to
-            use. No clutter, no dark patterns — just tools and games worth keeping.
+            use. No clutter, no dark patterns, just tools and games worth keeping.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a href="#gallery" className="rounded-2xl bg-[#0E1525] px-6 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5">

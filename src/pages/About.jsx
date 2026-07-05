@@ -7,7 +7,7 @@ const values = [
   { t: "Outcomes over output", d: "We're judged on growth, not how many deliverables we ship." },
   { t: "Clarity over jargon", d: "Plain English, honest reporting, no smoke and mirrors." },
   { t: "Craft in everything", d: "From a headline to a homepage, the details are the work." },
-  { t: "Partners, not vendors", d: "We win when you win — so we act like it's our business too." },
+  { t: "Partners, not vendors", d: "We win when you win, so we act like it's our business too." },
 ];
 
 const timeline = [
@@ -33,7 +33,7 @@ export default function About() {
             <p className="mt-4 text-white/70">
               We started Polished Pixels because too many brands were paying for activity
               instead of outcomes. We bring strategy, creative, media, and engineering
-              under one roof so nothing falls through the cracks — and everything points at growth.
+              under one roof so nothing falls through the cracks, and everything points at growth.
             </p>
             <p className="mt-4 text-white/70">
               No bloated retainers, no vanity dashboards. Just a senior team that treats

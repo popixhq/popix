@@ -129,7 +129,7 @@ export default function ServiceDetail() {
             <span className="eyebrow">FAQ</span>
             <h2 className="heading mt-4 text-3xl">Questions, answered.</h2>
             <p className="mt-4 text-white/60">
-              Still curious? <Link to="/contact" className="text-accent">Talk to us</Link> — no pressure, no jargon.
+              Still curious? <Link to="/contact" className="text-accent">Talk to us</Link>, no pressure, no jargon.
             </p>
           </Reveal>
           <div>

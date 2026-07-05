@@ -37,7 +37,7 @@ function SiteLayout() {
   );
 }
 
-// On the main domain, /apps/* now lives on the subdomain — send visitors there.
+// On the main domain, /apps/* now lives on the subdomain, send visitors there.
 function AppsRedirect() {
   useEffect(() => {
     const rest = window.location.pathname.replace(/^\/apps/, "") || "/";

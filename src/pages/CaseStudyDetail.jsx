@@ -46,7 +46,7 @@ export default function CaseStudyDetail() {
           <Reveal>
             <h2 className="font-display text-xl font-semibold text-brand-light">The challenge</h2>
             <p className="mt-3 text-white/70">
-              {c.client} came to us wanting measurable growth in {c.industry.toLowerCase()} —
+              {c.client} came to us wanting measurable growth in {c.industry.toLowerCase()} -
               not more activity, but real outcomes tied to the bottom line.
             </p>
           </Reveal>
@@ -54,13 +54,13 @@ export default function CaseStudyDetail() {
             <h2 className="font-display text-xl font-semibold text-brand-light">What we did</h2>
             <p className="mt-3 text-white/70">
               We led with {c.service.toLowerCase()}, building a strategy around their audience
-              and tightening the funnel at every step — from first impression to conversion.
+              and tightening the funnel at every step, from first impression to conversion.
             </p>
           </Reveal>
           <Reveal delay={0.16}>
             <h2 className="font-display text-xl font-semibold text-brand-light">The outcome</h2>
             <p className="mt-3 text-white/70">
-              The headline result: <span className="text-white">{c.result}</span> — alongside
+              The headline result: <span className="text-white">{c.result}</span>, alongside
               compounding gains across the metrics above and a partnership that's still going.
             </p>
           </Reveal>

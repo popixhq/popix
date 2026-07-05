@@ -1,6 +1,6 @@
 // Shared building blocks for the Apps section (light theme, per-app accent).
 
-// Squircle app icon with a soft colored glow — the section's signature element.
+// Squircle app icon with a soft colored glow, the section's signature element.
 export function Squircle({ glyph, accent, size = 72, icon = null, className = "" }) {
   return (
     <span
@@ -36,8 +36,9 @@ export function Squircle({ glyph, accent, size = 72, icon = null, className = ""
   );
 }
 
-// A phone frame with a gradient "screen" and a label — used for mockups.
-export function PhoneMockup({ from, to, label, className = "", floating = false }) {
+// A phone frame. Shows a real screenshot when `img` is given, otherwise a
+// gradient "screen" with a label.
+export function PhoneMockup({ from, to, label, img, className = "", floating = false }) {
   return (
     <div
       className={`relative aspect-[9/19] w-full max-w-[240px] rounded-[2rem] border border-black/10 bg-black p-2 shadow-2xl ${
@@ -45,14 +46,21 @@ export function PhoneMockup({ from, to, label, className = "", floating = false 
       } ${className}`}
     >
       <div className="absolute left-1/2 top-3 z-10 h-1.5 w-14 -translate-x-1/2 rounded-full bg-white/40" />
-      <div
-        className="relative flex h-full w-full flex-col items-center justify-end overflow-hidden rounded-[1.6rem]"
-        style={{ background: `linear-gradient(160deg, ${from}, ${to})` }}
-      >
-        <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(circle_at_30%_20%,#fff,transparent_45%)]" />
-        <span className="mb-8 rounded-full bg-white/85 px-4 py-1.5 text-sm font-semibold text-slate-800 shadow">
-          {label}
-        </span>
+      <div className="relative flex h-full w-full flex-col items-center justify-end overflow-hidden rounded-[1.6rem]">
+        {img ? (
+          <img src={img} alt={label || "App screenshot"} className="absolute inset-0 h-full w-full object-cover object-top" />
+        ) : (
+          <>
+            <div
+              className="absolute inset-0"
+              style={{ background: `linear-gradient(160deg, ${from}, ${to})` }}
+            />
+            <div className="pointer-events-none absolute inset-0 opacity-30 [background:radial-gradient(circle_at_30%_20%,#fff,transparent_45%)]" />
+            <span className="mb-8 rounded-full bg-white/85 px-4 py-1.5 text-sm font-semibold text-slate-800 shadow">
+              {label}
+            </span>
+          </>
+        )}
       </div>
     </div>
   );
@@ -95,7 +103,7 @@ export function PlayButton({ href = "", accent = "#0E1525", comingSoon = false }
   );
 }
 
-// Faint dotted "pixel-canvas" background — a nod to Polished Pixels.
+// Faint dotted "pixel-canvas" background, a nod to Polished Pixels.
 export function DottedCanvas({ className = "" }) {
   return (
     <div

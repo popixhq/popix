@@ -1,4 +1,4 @@
-// Industry landing pages — mirrors the reference site's industry coverage.
+// Industry landing pages, mirrors the reference site's industry coverage.
 
 export const industries = [
   {
@@ -19,7 +19,7 @@ export const industries = [
     slug: "healthcare",
     name: "Healthcare",
     blurb: "Compliant marketing that builds trust.",
-    hero: "Patient-first digital marketing for clinics, hospitals, and health brands — built around trust and compliance.",
+    hero: "Patient-first digital marketing for clinics, hospitals, and health brands, built around trust and compliance.",
     points: ["Local SEO for clinics", "Patient acquisition ads", "Reputation & reviews", "Educational content"],
   },
   {
@@ -67,7 +67,7 @@ export const industries = [
   {
     slug: "home-decor",
     name: "Home & Decor",
-    blurb: "Make spaces — and sales — beautiful.",
+    blurb: "Make spaces, and sales, beautiful.",
     hero: "Visual-first marketing for furniture, decor, and interior brands.",
     points: ["Catalogue & shopping ads", "Lifestyle content", "Showroom local SEO", "CRO"],
   },

@@ -1,4 +1,4 @@
-// Polished Pixels brand logo — uses the real artwork (public/brand/*),
+// Polished Pixels brand logo, uses the real artwork (public/brand/*),
 // generated from the official file. "light" tone = white version for dark
 // backgrounds; "color" = original slate for light backgrounds.
 

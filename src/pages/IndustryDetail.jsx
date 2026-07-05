@@ -38,7 +38,7 @@ export default function IndustryDetail() {
             <h2 className="heading mt-4 text-3xl">Built for how {ind.name.toLowerCase()} buyers decide.</h2>
             <p className="mt-4 text-white/70">
               We combine sector insight with our full marketing stack to win attention,
-              earn trust, and convert demand — without the long ramp-up of a generalist agency.
+              earn trust, and convert demand, without the long ramp-up of a generalist agency.
             </p>
           </Reveal>
           <Reveal delay={0.1}>
