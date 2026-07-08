@@ -1,7 +1,7 @@
 export const company = {
   name: "Polished Pixels",
   domain: "popixhq.com",
-  email: "hello@popixhq.com",
+  email: "contact@popixhq.com",
   phone: "+1 (000) 000-0000",
   tagline: "Digital marketing & creative, polished to perfection.",
   socials: [

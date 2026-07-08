@@ -73,7 +73,7 @@ export const apps = [
         { h: "Sensitive content", p: "ClipSave does not save clipboard content that the source app marks as sensitive, for example passwords or one-time codes copied from a password manager." },
         { h: "Permissions and data collection", p: "ClipSave requests no Android permissions and reads the clipboard only while the app is open on screen. We collect, transmit, sell, and share no personal or usage data, and the app contains no third-party SDKs, advertising, or analytics." },
         { h: "Children", p: "The app is safe for general audiences and collects no data from anyone, including children." },
-        { h: "Contact", p: "Questions about this policy? Email thepolishedpixels@gmail.com. If this policy changes, we will update the date above." },
+        { h: "Contact", p: "Questions about this policy? Email contact@popixhq.com. If this policy changes, we will update the date above." },
       ],
     },
   },
