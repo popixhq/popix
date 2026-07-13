@@ -74,7 +74,7 @@ export default function AppLanding() {
             applicationCategory:
               ({
                 clipsave: "UtilitiesApplication",
-                playdeck: "GameApplication",
+                "pocket-play": "GameApplication",
                 echopoem: "EducationalApplication",
               })[slug] || "MobileApplication",
             description: app.summary,
@@ -227,12 +227,18 @@ export default function AppLanding() {
           <div className="mt-7 flex justify-center">
             <PlayButton href={app.playUrl} comingSoon={!live} accent={app.accent} />
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex items-center justify-center gap-5">
             <Link
               to={`${appLink(app.slug)}/privacy`}
               className="text-sm font-medium text-white/85 underline underline-offset-4 hover:text-white"
             >
               Privacy policy
+            </Link>
+            <Link
+              to={`${appLink(app.slug)}/terms`}
+              className="text-sm font-medium text-white/85 underline underline-offset-4 hover:text-white"
+            >
+              Terms of service
             </Link>
           </div>
         </div>

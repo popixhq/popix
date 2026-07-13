@@ -18,6 +18,7 @@ import AppsLayout from "./apps/AppsLayout";
 import AppsIndex from "./apps/AppsIndex";
 import AppLanding from "./apps/AppLanding";
 import AppPrivacy from "./apps/AppPrivacy";
+import AppTerms from "./apps/AppTerms";
 import { IS_APPS_HOST, IS_LOCAL } from "./apps/appBase";
 
 // Dark agency layout (default site)
@@ -52,6 +53,7 @@ function AppsSite() {
           <Route index element={<AppsIndex />} />
           <Route path=":slug" element={<AppLanding />} />
           <Route path=":slug/privacy" element={<AppPrivacy />} />
+          <Route path=":slug/terms" element={<AppTerms />} />
           <Route path="*" element={<AppsIndex />} />
         </Route>
       </Routes>
@@ -71,6 +73,7 @@ function MainSite() {
             <Route index element={<AppsIndex />} />
             <Route path=":slug" element={<AppLanding />} />
             <Route path=":slug/privacy" element={<AppPrivacy />} />
+            <Route path=":slug/terms" element={<AppTerms />} />
           </Route>
         ) : (
           <>

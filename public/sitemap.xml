@@ -36,6 +36,8 @@
   <url><loc>https://popixhq.com/contact</loc><priority>0.7</priority></url>
   <url><loc>https://apps.popixhq.com/</loc><priority>0.7</priority></url>
   <url><loc>https://apps.popixhq.com/clipsave</loc><priority>0.6</priority></url>
-  <url><loc>https://apps.popixhq.com/playdeck</loc><priority>0.6</priority></url>
+  <url><loc>https://apps.popixhq.com/pocket-play</loc><priority>0.6</priority></url>
+  <url><loc>https://apps.popixhq.com/pocket-play/privacy</loc><priority>0.4</priority></url>
+  <url><loc>https://apps.popixhq.com/pocket-play/terms</loc><priority>0.4</priority></url>
   <url><loc>https://apps.popixhq.com/echopoem</loc><priority>0.6</priority></url>
 </urlset>
