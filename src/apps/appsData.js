@@ -106,10 +106,12 @@ export const apps = [
       { k: "1", v: "profile everywhere" },
     ],
     screens: [
-      { label: "Game shelf", from: "#4F7CFF", to: "#8B5CF0" },
-      { label: "Chess", from: "#8B5CF0", to: "#D94BD0" },
-      { label: "2048", from: "#31C6FF", to: "#4F7CFF" },
-      { label: "Best scores", from: "#D94BD0", to: "#FF5C9D" },
+      { label: "Game shelf", img: "/apps/pocket-play/1-home.png" },
+      { label: "Real chess", img: "/apps/pocket-play/2-chess.png" },
+      { label: "2048", img: "/apps/pocket-play/3-2048.png" },
+      { label: "Best scores", img: "/apps/pocket-play/4-scores.png" },
+      { label: "Settings", img: "/apps/pocket-play/5-settings.png" },
+      { label: "Solitaire", img: "/apps/pocket-play/6-solitaire.png" },
     ],
     faqs: [
       { q: "Do I need an internet connection?", a: "No. All 22 games are fully playable offline, forever. Pocket Play never needs wifi or data to play." },
