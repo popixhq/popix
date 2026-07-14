@@ -4,6 +4,9 @@
 const fill = { display: "block", width: "100%", height: "100%" };
 
 export const appIcons = {
+  "pocket-play": (
+    <img src="/apps/pocket-play/icon.png" alt="" style={fill} />
+  ),
   clipsave: (
     <svg viewBox="0 0 512 512" style={fill} aria-hidden="true">
       <defs>

@@ -112,6 +112,8 @@ export const apps = [
       { label: "Best scores", img: "/apps/pocket-play/4-scores.png" },
       { label: "Settings", img: "/apps/pocket-play/5-settings.png" },
       { label: "Solitaire", img: "/apps/pocket-play/6-solitaire.png" },
+      { label: "Word Search", img: "/apps/pocket-play/7-wordsearch.png" },
+      { label: "Bubble Shooter", img: "/apps/pocket-play/8-bubbleshooter.png" },
     ],
     faqs: [
       { q: "Do I need an internet connection?", a: "No. All 22 games are fully playable offline, forever. Pocket Play never needs wifi or data to play." },
