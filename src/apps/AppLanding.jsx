@@ -74,7 +74,7 @@ export default function AppLanding() {
             applicationCategory:
               ({
                 clipsave: "UtilitiesApplication",
-                "pocket-play": "GameApplication",
+                "offline-games": "GameApplication",
                 echopoem: "EducationalApplication",
               })[slug] || "MobileApplication",
             description: app.summary,
