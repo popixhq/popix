@@ -59,18 +59,18 @@ export default function InvoiceGenerator() {
     }
   }
 
-  const inputCls = "w-full rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:border-slate-400";
+  const inputCls = "w-full rounded-lg border border-border-subtle px-3 py-2 text-sm outline-none focus:border-slate-400";
 
   return (
     <ToolShell slug="invoice-generator" wide>
-      <div className="grid gap-8 lg:grid-cols-[380px_1fr]">
+      <div className="grid gap-8 lg:grid-cols-[minmax(300px,340px)_1fr]">
         {/* Form */}
         <div className="space-y-5">
           <div>
             <p className="mb-2 text-sm font-semibold text-slate-700">Template</p>
             <div className="grid grid-cols-2 gap-2">
               {TEMPLATES.map((t) => (
-                <button key={t.id} onClick={() => setTpl(t)} className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-left text-xs font-medium ${tpl.id === t.id ? "border-slate-900 bg-slate-50" : "border-slate-200"}`}>
+                <button key={t.id} onClick={() => setTpl(t)} className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-left text-xs font-medium ${tpl.id === t.id ? "border-slate-900 bg-slate-50" : "border-border-subtle"}`}>
                   <span className="h-4 w-4 shrink-0 rounded" style={{ background: t.accent }} />
                   {t.name}
                 </button>
@@ -101,8 +101,8 @@ export default function InvoiceGenerator() {
               {items.map((it, i) => (
                 <div key={i} className="flex gap-2">
                   <input placeholder="Description" value={it.desc} onChange={(e) => setItem(i, "desc", e.target.value)} className={inputCls} />
-                  <input type="number" placeholder="Qty" value={it.qty} onChange={(e) => setItem(i, "qty", e.target.value)} className="w-16 rounded-lg border border-slate-200 px-2 py-2 text-sm" />
-                  <input type="number" placeholder="Rate" value={it.rate} onChange={(e) => setItem(i, "rate", e.target.value)} className="w-20 rounded-lg border border-slate-200 px-2 py-2 text-sm" />
+                  <input type="number" placeholder="Qty" value={it.qty} onChange={(e) => setItem(i, "qty", e.target.value)} className="w-16 rounded-lg border border-border-subtle px-2 py-2 text-sm" />
+                  <input type="number" placeholder="Rate" value={it.rate} onChange={(e) => setItem(i, "rate", e.target.value)} className="w-20 rounded-lg border border-border-subtle px-2 py-2 text-sm" />
                   <button onClick={() => setItems((p) => p.filter((_, j) => j !== i))} className="px-1 text-slate-400 hover:text-red-500">&times;</button>
                 </div>
               ))}
@@ -122,8 +122,8 @@ export default function InvoiceGenerator() {
 
         {/* Live preview */}
         <div className="overflow-x-auto">
-          <div className="mx-auto w-[720px] max-w-full">
-            <div ref={previewRef} style={{ width: 720, background: "#fff", color: "#0f172a", fontFamily: tpl.font }}>
+          <div className="mx-auto w-[560px] max-w-full">
+            <div ref={previewRef} style={{ width: 560, background: "#fff", color: "#0f172a", fontFamily: tpl.font }}>
               <InvoicePreview tpl={tpl} d={d} items={items} totals={totals} money={money} />
             </div>
           </div>

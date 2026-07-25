@@ -51,7 +51,7 @@ export default function ExcelToPdf({ slug = "excel-to-pdf", accept = ".xlsx,.xls
 
   return (
     <ToolShell slug={slug}>
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept={accept} accent={ACCENT} label="Drop a spreadsheet here, or click to choose" hint={accept.replace(/\./g, "").toUpperCase().replace(/,/g, ", ")} files={file ? [file] : []} />
         {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
         {file && (

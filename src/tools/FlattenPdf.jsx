@@ -34,7 +34,7 @@ export default function FlattenPdf() {
 
   return (
     <ToolShell slug="flatten-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept="application/pdf,.pdf" accent={ACCENT} label="Drop a PDF here, or click to choose" hint="Flattens form fields into the page" files={file ? [file] : []} />
         <p className="mt-4 rounded-xl bg-slate-50 px-4 py-3 text-sm text-slate-600">
           Flattening turns fillable form fields into fixed page content, so the values can no longer be edited and the PDF looks the same in every viewer.

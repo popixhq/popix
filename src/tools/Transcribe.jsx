@@ -84,7 +84,7 @@ export default function Transcribe({ slug }) {
 
   return (
     <ToolShell slug={slug}>
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop
           onFiles={onFiles}
           accept={isVideo ? "video/*" : "audio/*"}
@@ -110,9 +110,9 @@ export default function Transcribe({ slug }) {
 
         {text && (
           <div className="mt-6">
-            <textarea readOnly value={text} rows={10} className="w-full rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-800" />
+            <textarea readOnly value={text} rows={10} className="w-full rounded-xl border border-border-subtle bg-slate-50 p-4 text-sm text-slate-800" />
             <div className="mt-3 flex flex-wrap gap-2">
-              <button onClick={() => navigator.clipboard?.writeText(text)} className="rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Copy text</button>
+              <button onClick={() => navigator.clipboard?.writeText(text)} className="rounded-xl border border-border-subtle px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Copy text</button>
               <button onClick={() => downloadBlob(new Blob([text], { type: "text/plain" }), file.name.replace(/\.[^.]+$/, "") + ".txt")} className="rounded-xl px-4 py-2 text-sm font-semibold text-white" style={{ background: ACCENT }}>Download .txt</button>
               <button onClick={() => { setText(""); setPhase("idle"); }} className="rounded-xl px-4 py-2 text-sm text-slate-500 hover:text-slate-800">Transcribe another</button>
             </div>

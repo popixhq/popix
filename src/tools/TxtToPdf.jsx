@@ -41,7 +41,7 @@ export default function TxtToPdf() {
 
   return (
     <ToolShell slug="txt-to-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept=".txt,text/plain" accent={ACCENT} label="Drop a .txt file here, or click to choose" hint="Plain text" files={file ? [file] : []} />
         {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
         {file && (

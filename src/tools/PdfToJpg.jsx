@@ -54,7 +54,7 @@ export default function PdfToJpg() {
 
   return (
     <ToolShell slug="pdf-to-jpg">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept="application/pdf,.pdf" accent={ACCENT} label="Drop a PDF here, or click to choose" hint="Each page becomes a JPG" files={file ? [file] : []} />
         {file && (
           <div className="mt-6 space-y-4">

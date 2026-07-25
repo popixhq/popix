@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { toolLink } from "./toolsBase";
 import { getTool } from "./toolsData";
 import MaterialIcon, { symbolFor } from "./MaterialIcon";
@@ -13,18 +13,27 @@ const FEATURES = [
 
 export default function ToolShell({ slug, children, wide = false }) {
   const tool = getTool(slug);
+  const navigate = useNavigate();
+  const location = useLocation();
   useAppSeo({
     title: `${tool?.name || "Tool"} | Free browser tool | Polished Pixels`,
     description: tool?.desc,
     url: typeof window !== "undefined" ? window.location.href : `https://popixhq.com/tools/${slug}`,
   });
 
+  // Go back so the hub restores the scroll position where the tool was opened.
+  // If the tool was opened directly (no in-app history), go to the hub instead.
+  const goBack = () => {
+    if (location.key && location.key !== "default") navigate(-1);
+    else navigate(toolLink());
+  };
+
   return (
     <main className="px-margin-mobile py-12 md:px-margin-desktop">
-      <div className={`mx-auto w-full ${wide ? "max-w-container-max" : "max-w-4xl"}`}>
-        <Link to={toolLink()} className="mb-6 inline-flex items-center gap-1 text-sm font-semibold text-on-surface-variant transition-colors hover:text-primary">
+      <div className={`mx-auto w-full ${wide ? "max-w-5xl" : "max-w-4xl"}`}>
+        <button onClick={goBack} className="mb-6 inline-flex items-center gap-1 text-sm font-semibold text-on-surface-variant transition-colors hover:text-primary">
           <MaterialIcon name="arrow_back" className="text-[18px]" /> All tools
-        </Link>
+        </button>
 
         <div className="mb-12 text-center">
           <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-xl bg-surface-container text-primary">

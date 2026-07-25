@@ -41,7 +41,7 @@ export default function ZipToPdf() {
 
   return (
     <ToolShell slug="zip-to-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept=".zip,application/zip" accent={ACCENT} label="Drop a .zip here, or click to choose" hint="A zip of JPG or PNG images" files={file ? [file] : []} />
         {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
         {file && (

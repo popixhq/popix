@@ -77,7 +77,8 @@ function ToolsHeader() {
             <NavLink to={toolLink()} end className="py-1 text-sm font-semibold uppercase tracking-wide text-on-surface-variant transition-colors hover:text-primary">All tools</NavLink>
           </nav>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          <Link to="/apps" className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-primary sm:block">Apps</Link>
           <Link to="/" className="hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-on-primary shadow-sm transition-all hover:shadow-md active:scale-95 sm:block">Agency site</Link>
           <button className="grid h-10 w-10 place-items-center rounded-lg text-primary hover:bg-surface-container-low md:hidden" onClick={() => setMobile((v) => !v)} aria-label="Menu">
             <MaterialIcon name={mobile ? "close" : "menu"} className="text-[24px]" />
@@ -99,7 +100,8 @@ function ToolsHeader() {
                 ))}
               </div>
             ))}
-            <Link to="/" className="mt-4 block rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-on-primary">Agency site</Link>
+            <Link to="/apps" className="mt-4 block rounded-lg border border-border-subtle px-3 py-2.5 text-center text-sm font-semibold text-primary">Apps</Link>
+            <Link to="/" className="mt-2 block rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-on-primary">Agency site</Link>
           </div>
         </div>
       )}

@@ -81,7 +81,7 @@ export default function SplitPdf() {
 
   return (
     <ToolShell slug="split-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept="application/pdf,.pdf" accent={ACCENT} label="Drop a PDF here, or click to choose" hint="Your PDF stays on your device" files={file ? [file] : []} />
 
         {count > 0 && (
@@ -89,13 +89,13 @@ export default function SplitPdf() {
             <p className="text-sm text-slate-500">This PDF has {count} page{count === 1 ? "" : "s"}.</p>
             <div className="flex gap-2">
               {[["range", "Extract a page range"], ["each", "Split into single pages (zip)"]].map(([m, label]) => (
-                <button key={m} onClick={() => setMode(m)} className={`flex-1 rounded-xl border px-4 py-2.5 text-sm font-medium ${mode === m ? "text-white" : "border-slate-200 bg-white text-slate-600"}`} style={mode === m ? { background: ACCENT, borderColor: ACCENT } : {}}>
+                <button key={m} onClick={() => setMode(m)} className={`flex-1 rounded-xl border px-4 py-2.5 text-sm font-medium ${mode === m ? "text-white" : "border-border-subtle bg-white text-slate-600"}`} style={mode === m ? { background: ACCENT, borderColor: ACCENT } : {}}>
                   {label}
                 </button>
               ))}
             </div>
             {mode === "range" && (
-              <input value={range} onChange={(e) => setRange(e.target.value)} placeholder="e.g. 1-3, 5, 8-10" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400" />
+              <input value={range} onChange={(e) => setRange(e.target.value)} placeholder="e.g. 1-3, 5, 8-10" className="w-full rounded-xl border border-border-subtle px-4 py-3 text-sm outline-none focus:border-slate-400" />
             )}
             {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
             <button onClick={run} disabled={busy} className="w-full rounded-xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-40" style={{ background: ACCENT }}>

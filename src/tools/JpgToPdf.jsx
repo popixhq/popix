@@ -44,12 +44,12 @@ export default function JpgToPdf() {
 
   return (
     <ToolShell slug="jpg-to-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={add} accept="image/*" multiple accent={ACCENT} label="Drop images here, or click to choose" hint="JPG or PNG, add as many as you like" />
         {files.length > 0 && (
           <ul className="mt-5 space-y-2">
             {files.map((f, i) => (
-              <li key={i} className="flex items-center gap-3 rounded-xl border border-black/5 bg-slate-50 p-3">
+              <li key={i} className="flex items-center gap-3 rounded-xl border border-border-subtle bg-slate-50 p-3">
                 <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md bg-white text-xs font-bold text-slate-500">{i + 1}</span>
                 <span className="min-w-0 flex-1 truncate text-sm text-slate-700">{f.name}</span>
                 <span className="text-xs text-slate-400">{prettyBytes(f.size)}</span>

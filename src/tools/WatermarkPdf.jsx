@@ -45,13 +45,13 @@ export default function WatermarkPdf() {
 
   return (
     <ToolShell slug="watermark-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept="application/pdf,.pdf" accent={ACCENT} label="Drop a PDF here, or click to choose" hint="Your PDF stays on your device" files={file ? [file] : []} />
         {file && (
           <div className="mt-6 space-y-4">
             <div>
               <label className="mb-1.5 block text-sm font-medium text-slate-700">Watermark text</label>
-              <input value={text} onChange={(e) => setText(e.target.value)} className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400" />
+              <input value={text} onChange={(e) => setText(e.target.value)} className="w-full rounded-xl border border-border-subtle px-4 py-3 text-sm outline-none focus:border-slate-400" />
             </div>
             <div>
               <div className="flex justify-between text-sm font-medium text-slate-700"><span>Opacity</span><span>{opacity}%</span></div>

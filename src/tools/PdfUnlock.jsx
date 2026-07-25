@@ -95,7 +95,7 @@ export default function PdfUnlock() {
         </div>
       </div>
 
-      <div className="mt-8 rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="mt-8 rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         {/* Dropzone */}
         <button
           type="button"
@@ -104,7 +104,7 @@ export default function PdfUnlock() {
           onDragLeave={() => setDragOver(false)}
           onDrop={(e) => { e.preventDefault(); setDragOver(false); onPick(e.dataTransfer.files?.[0]); }}
           className={`flex w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed px-6 py-10 text-center transition-colors ${
-            dragOver ? "border-[color:var(--a)] bg-[color:var(--a)]/5" : "border-slate-200 hover:border-slate-300"
+            dragOver ? "border-[color:var(--a)] bg-[color:var(--a)]/5" : "border-border-subtle hover:border-slate-300"
           }`}
           style={{ "--a": ACCENT }}
         >
@@ -141,7 +141,7 @@ export default function PdfUnlock() {
                 onKeyDown={(e) => e.key === "Enter" && password && unlock()}
                 placeholder="Enter the password you use to open it"
                 autoFocus
-                className="mt-1.5 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-[color:var(--a)]"
+                className="mt-1.5 w-full rounded-xl border border-border-subtle px-4 py-3 text-sm outline-none focus:border-[color:var(--a)]"
                 style={{ "--a": ACCENT }}
               />
             </motion.div>

@@ -32,7 +32,7 @@ export default function HtmlToPdf() {
 
   return (
     <ToolShell slug="html-to-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept=".html,.htm,text/html" accent={ACCENT} label="Drop an HTML file here, or click to choose" hint="Works best with self-contained, inline-styled HTML" files={file ? [file] : []} />
         <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-700">
           External stylesheets, fonts and images that are not embedded in the file will not load. For best results use HTML with inline styles.

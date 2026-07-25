@@ -38,13 +38,13 @@ export default function ProtectPdf() {
 
   return (
     <ToolShell slug="protect-pdf">
-      <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm sm:p-8">
         <FileDrop onFiles={onFiles} accept="application/pdf,.pdf" accent={ACCENT} label="Drop a PDF here, or click to choose" hint="Your PDF stays on your device" files={file ? [file] : []} />
         {file && (
           <div className="mt-6 space-y-4">
             <div>
               <label className="mb-1.5 block text-sm font-medium text-slate-700">Password</label>
-              <input type="password" value={pw} onChange={(e) => setPw(e.target.value)} placeholder="Choose a password for the PDF" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400" />
+              <input type="password" value={pw} onChange={(e) => setPw(e.target.value)} placeholder="Choose a password for the PDF" className="w-full rounded-xl border border-border-subtle px-4 py-3 text-sm outline-none focus:border-slate-400" />
               <p className="mt-1 text-xs text-slate-400">Commas are removed. Keep your password safe, it cannot be recovered.</p>
             </div>
             {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
