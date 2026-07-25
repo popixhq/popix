@@ -37,7 +37,9 @@ export default function Footer() {
             title="Company"
             links={[
               { to: "/about", label: "About" },
-              { href: "https://apps.popixhq.com", label: "Apps" },
+              { to: "/apps", label: "Apps" },
+              { to: "/tools", label: "Tools" },
+              { to: "/blogs", label: "Blogs" },
               { to: "/contact", label: "Contact" },
             ]}
           />

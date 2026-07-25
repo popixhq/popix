@@ -16,8 +16,9 @@ export const company = {
 export const mainNav = [
   { label: "Services", to: "/services", mega: true },
   { label: "Industries", to: "/industries" },
-  { label: "Apps", href: "https://apps.popixhq.com", external: true },
-  { label: "Tools", href: "https://tools.popixhq.com", external: true },
+  { label: "Apps", to: "/apps" },
+  { label: "Tools", to: "/tools" },
+  { label: "Blogs", to: "/blogs" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

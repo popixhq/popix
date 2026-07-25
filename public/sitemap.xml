@@ -34,12 +34,13 @@
   <url><loc>https://popixhq.com/locations/canada</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/locations/south-africa</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/contact</loc><priority>0.7</priority></url>
-  <url><loc>https://apps.popixhq.com/</loc><priority>0.7</priority></url>
-  <url><loc>https://apps.popixhq.com/clipsave</loc><priority>0.6</priority></url>
-  <url><loc>https://apps.popixhq.com/pocket-play</loc><priority>0.6</priority></url>
-  <url><loc>https://apps.popixhq.com/pocket-play/privacy</loc><priority>0.4</priority></url>
-  <url><loc>https://apps.popixhq.com/pocket-play/terms</loc><priority>0.4</priority></url>
-  <url><loc>https://apps.popixhq.com/echopoem</loc><priority>0.6</priority></url>
-  <url><loc>https://tools.popixhq.com/</loc><priority>0.7</priority></url>
-  <url><loc>https://tools.popixhq.com/pdf-password-remover</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/blogs</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/apps</loc><priority>0.7</priority></url>
+  <url><loc>https://popixhq.com/apps/clipsave</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/apps/pocket-play</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/apps/pocket-play/privacy</loc><priority>0.4</priority></url>
+  <url><loc>https://popixhq.com/apps/pocket-play/terms</loc><priority>0.4</priority></url>
+  <url><loc>https://popixhq.com/apps/echopoem</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools</loc><priority>0.7</priority></url>
+  <url><loc>https://popixhq.com/tools/pdf-password-remover</loc><priority>0.6</priority></url>
 </urlset>
