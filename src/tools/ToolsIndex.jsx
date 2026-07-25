@@ -14,8 +14,8 @@ export default function ToolsIndex() {
       {/* Hero */}
       <header className="pb-8 pt-16 md:pt-20">
         <div className="mx-auto max-w-container-max px-margin-mobile md:px-margin-desktop">
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-secondary-container bg-secondary-container/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-on-secondary-container">
-            <MaterialIcon name="verified" className="text-[14px]" /> Free, private, no sign-up
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-secondary-container px-4 py-2 text-sm font-bold uppercase tracking-wide text-on-secondary-container shadow-sm">
+            <MaterialIcon name="verified" className="text-[18px]" fill /> Free, private, no sign-up
           </div>
           <h1 className="mb-6 max-w-3xl font-jakarta text-[32px] font-bold leading-[1.1] tracking-tight text-primary md:text-5xl md:leading-[1.05]">
             Simple tools that run in your browser.
@@ -41,12 +41,7 @@ export default function ToolsIndex() {
           return (
             <section key={g.id} id={slugifyCat(g.id)} className="scroll-mt-24">
               <div className="mb-8 flex items-center justify-between border-b border-border-subtle pb-4">
-                <h2 className="flex items-center gap-3 font-jakarta text-2xl font-semibold tracking-tight text-primary">
-                  {g.label}
-                  <span className="rounded-full bg-surface-container px-2 py-0.5 text-sm font-normal text-on-surface-variant">
-                    {items.length} {items.length === 1 ? "Tool" : "Tools"}
-                  </span>
-                </h2>
+                <h2 className="font-jakarta text-2xl font-semibold tracking-tight text-primary">{g.label}</h2>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {items.map((t) => <ToolCard key={t.slug} t={t} />)}
