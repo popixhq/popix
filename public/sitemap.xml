@@ -59,4 +59,6 @@
   <url><loc>https://popixhq.com/tools/zip-to-pdf</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/tools/protect-pdf</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/tools/watermark-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/audio-to-text</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/video-to-text</loc><priority>0.6</priority></url>
 </urlset>

@@ -40,6 +40,7 @@ import ZipToPdf from "./tools/ZipToPdf";
 import ProtectPdf from "./tools/ProtectPdf";
 import WatermarkPdf from "./tools/WatermarkPdf";
 import FlattenPdf from "./tools/FlattenPdf";
+import Transcribe from "./tools/Transcribe";
 import { IS_TOOLS_HOST } from "./tools/toolsBase";
 
 // Dark agency layout (default site)
@@ -99,6 +100,8 @@ function MainSite() {
           <Route path="protect-pdf" element={<ProtectPdf />} />
           <Route path="watermark-pdf" element={<WatermarkPdf />} />
           <Route path="flatten-pdf" element={<FlattenPdf />} />
+          <Route path="audio-to-text" element={<Transcribe slug="audio-to-text" />} />
+          <Route path="video-to-text" element={<Transcribe slug="video-to-text" />} />
         </Route>
 
         {/* Agency site */}
