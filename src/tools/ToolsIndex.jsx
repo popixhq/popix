@@ -1,71 +1,124 @@
 import { Link } from "react-router-dom";
 import { toolsByCategory } from "./toolsData";
 import { toolLink } from "./toolsBase";
-import ToolIcon from "./ToolIcon";
+import MaterialIcon, { symbolFor } from "./MaterialIcon";
+
+export function slugifyCat(id) {
+  return "cat-" + id.toLowerCase().replace(/[^a-z]+/g, "-").replace(/(^-|-$)/g, "");
+}
 
 export default function ToolsIndex() {
   const groups = toolsByCategory();
   return (
     <>
-      <section className="mx-auto max-w-5xl px-5 pt-16 pb-6 sm:px-8 sm:pt-20">
-        <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Free, private, no sign-up
-        </span>
-        <h1 className="mt-5 max-w-2xl font-display text-4xl font-bold tracking-tight sm:text-5xl">
-          Simple tools that run in your browser.
-        </h1>
-        <p className="mt-4 max-w-xl text-lg text-slate-600">
-          Small, useful utilities from Polished Pixels. Your files never get uploaded.
-          Everything happens on your device, so it is fast and private.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {groups.map((g) => (
-            <a key={g.id} href={`#${slugifyCat(g.id)}`} className="rounded-full border border-black/10 bg-white px-3.5 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-              {g.label}
-            </a>
-          ))}
+      {/* Hero */}
+      <header className="px-margin-mobile pb-8 pt-16 md:px-margin-desktop md:pt-20">
+        <div className="mx-auto max-w-container-max">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-secondary-container bg-secondary-container/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-on-secondary-container">
+            <MaterialIcon name="verified" className="text-[14px]" /> Free, private, no sign-up
+          </div>
+          <h1 className="mb-6 max-w-3xl font-jakarta text-[32px] font-bold leading-[1.1] tracking-tight text-primary md:text-5xl md:leading-[1.05]">
+            Simple tools that run in your browser.
+          </h1>
+          <p className="mb-10 max-w-2xl text-lg text-on-surface-variant">
+            Small, useful utilities from Polished Pixels. Your files never get uploaded.
+            Everything happens on your device, so it is fast and private.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {groups.map((g) => (
+              <a key={g.id} href={`#${slugifyCat(g.id)}`} className="rounded-full border border-border-subtle bg-surface-main px-5 py-2.5 text-sm font-semibold transition-all hover:border-primary hover:shadow-sm">
+                {g.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </section>
+      </header>
 
-      <section className="mx-auto max-w-5xl px-5 pb-24 sm:px-8">
-        {groups.map((g) => (
-          <div key={g.id} id={slugifyCat(g.id)} className="mt-12 scroll-mt-20 first:mt-6">
-            <h2 className="font-display text-xl font-bold text-slate-800">{g.label}</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {g.items.map((t) => <Card key={t.slug} t={t} />)}
+      {/* Category sections */}
+      <main className="mx-auto max-w-container-max space-y-20 px-margin-mobile pb-24 md:px-margin-desktop">
+        {groups.map((g) => {
+          const items = g.items.filter((t) => t.status === "live");
+          return (
+            <section key={g.id} id={slugifyCat(g.id)} className="scroll-mt-24">
+              <div className="mb-8 flex items-center justify-between border-b border-border-subtle pb-4">
+                <h2 className="flex items-center gap-3 font-jakarta text-2xl font-semibold tracking-tight text-primary">
+                  {g.label}
+                  <span className="rounded-full bg-surface-container px-2 py-0.5 text-sm font-normal text-on-surface-variant">
+                    {items.length} {items.length === 1 ? "Tool" : "Tools"}
+                  </span>
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {items.map((t) => <ToolCard key={t.slug} t={t} />)}
+              </div>
+            </section>
+          );
+        })}
+
+        <PrivacySection />
+      </main>
+    </>
+  );
+}
+
+function ToolCard({ t }) {
+  return (
+    <Link to={toolLink(t.slug)} className="group flex h-full flex-col rounded-xl border border-border-subtle bg-surface-main p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary">
+      <div className="mb-5 grid h-12 w-12 place-items-center rounded-lg bg-surface-container text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
+        <MaterialIcon name={symbolFor(t.slug)} className="text-[28px]" />
+      </div>
+      <h3 className="mb-2 font-jakarta text-xl font-semibold text-primary">{t.name}</h3>
+      <p className="mb-8 flex-grow text-sm text-on-surface-variant">{t.desc}</p>
+      <span className="flex w-full items-center justify-center gap-2 rounded-lg bg-surface-container-low py-3 text-sm font-semibold text-primary transition-all group-hover:bg-primary group-hover:text-on-primary">
+        Launch Tool <MaterialIcon name="arrow_forward" className="text-[18px]" />
+      </span>
+    </Link>
+  );
+}
+
+function PrivacySection() {
+  const cards = [
+    ["vpn_key", "Unlock", "Remove PDF passwords."],
+    ["verified_user", "Protect", "Add strong encryption."],
+    ["branding_watermark", "Watermark", "Branding and IP security."],
+    ["cloud_off", "Offline", "No internet required."],
+  ];
+  return (
+    <section className="scroll-mt-24" id="cat-privacy">
+      <div className="rounded-3xl border border-border-subtle bg-surface-container p-10 md:p-16">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-on-primary">
+              <MaterialIcon name="shield" className="text-[14px]" /> Privacy by design
+            </div>
+            <h2 className="mb-6 font-jakarta text-[32px] font-bold tracking-tight text-primary">Your data stays on your device. Period.</h2>
+            <p className="mb-10 text-lg text-on-surface-variant">
+              We do not use servers to process your files. By running on WebAssembly, these tools work
+              entirely inside your browser. It is faster, more private, and works offline.
+            </p>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {[["lock", "Zero Uploads", "Files never leave your computer."], ["no_accounts", "No Accounts", "No tracking or profile building."]].map(([i, h, d]) => (
+                <div key={h} className="flex items-start gap-4">
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-secondary/10 text-secondary"><MaterialIcon name={i} className="text-[20px]" /></span>
+                  <div>
+                    <h4 className="text-sm font-semibold text-primary">{h}</h4>
+                    <p className="text-sm text-on-surface-variant">{d}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </section>
-    </>
-  );
-}
-
-function Card({ t }) {
-  const live = t.status === "live";
-  const inner = (
-    <>
-      <div className="flex items-start justify-between">
-        <span className="grid h-11 w-11 place-items-center rounded-xl" style={{ background: `${t.accent}1a`, color: t.accent }}>
-          <ToolIcon name={t.icon} />
-        </span>
-        {!live && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-500">Soon</span>}
+          <div className="grid grid-cols-2 gap-4">
+            {cards.map(([i, h, d]) => (
+              <div key={h} className="rounded-2xl border border-border-subtle bg-surface-main p-6 shadow-sm transition-shadow hover:shadow-md">
+                <MaterialIcon name={i} className="mb-4 text-[32px] text-primary" />
+                <h4 className="mb-1 text-sm font-semibold text-primary">{h}</h4>
+                <p className="text-xs text-on-surface-variant">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <h3 className="mt-4 font-display text-base font-semibold">{t.name}</h3>
-      <p className="mt-1 flex-1 text-sm text-slate-600">{t.desc}</p>
-      <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style={{ color: live ? t.accent : "#94a3b8" }}>
-        {live ? "Open tool →" : "Coming soon"}
-      </span>
-    </>
+    </section>
   );
-  const cls = "group flex h-full flex-col rounded-2xl border border-black/5 bg-white p-5 shadow-sm transition-all";
-  return live ? (
-    <Link to={toolLink(t.slug)} className={`${cls} hover:-translate-y-1 hover:shadow-lg`}>{inner}</Link>
-  ) : (
-    <div className={`${cls} opacity-70`}>{inner}</div>
-  );
-}
-
-export function slugifyCat(id) {
-  return "cat-" + id.toLowerCase().replace(/[^a-z]+/g, "-").replace(/(^-|-$)/g, "");
 }

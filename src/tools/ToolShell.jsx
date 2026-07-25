@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 import { toolLink } from "./toolsBase";
 import { getTool } from "./toolsData";
-import ToolIcon from "./ToolIcon";
+import MaterialIcon, { symbolFor } from "./MaterialIcon";
 import RelatedTools from "./RelatedTools";
 import { useAppSeo } from "../apps/useAppSeo";
 
-// Shared wrapper for every tool page: header, body, privacy note, related tools.
+const FEATURES = [
+  ["verified_user", "Private by design", "Your files never leave your browser. Everything runs on your device."],
+  ["bolt", "Fast and free", "A high-performance engine does the work in your browser, with no sign-up."],
+  ["cloud_off", "Works offline", "No uploads and no servers, so it keeps working without a connection."],
+];
+
 export default function ToolShell({ slug, children, wide = false }) {
   const tool = getTool(slug);
-  const accent = tool?.accent || "#4E5FB5";
-
   useAppSeo({
     title: `${tool?.name || "Tool"} | Free browser tool | Polished Pixels`,
     description: tool?.desc,
@@ -17,29 +20,34 @@ export default function ToolShell({ slug, children, wide = false }) {
   });
 
   return (
-    <section className={`mx-auto px-5 py-14 sm:px-8 ${wide ? "max-w-4xl" : "max-w-2xl"}`}>
-      <Link to={toolLink()} className="text-sm font-medium text-slate-500 hover:text-slate-900">
-        &larr; All tools
-      </Link>
+    <main className="px-margin-mobile py-12 md:px-margin-desktop">
+      <div className={`mx-auto w-full ${wide ? "max-w-container-max" : "max-w-4xl"}`}>
+        <Link to={toolLink()} className="mb-6 inline-flex items-center gap-1 text-sm font-semibold text-on-surface-variant transition-colors hover:text-primary">
+          <MaterialIcon name="arrow_back" className="text-[18px]" /> All tools
+        </Link>
 
-      <div className="mt-6 flex items-center gap-4">
-        <span className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: `${accent}1a`, color: accent }}>
-          <ToolIcon name={tool?.icon || "file"} />
-        </span>
-        <div>
-          <h1 className="font-display text-3xl font-bold tracking-tight">{tool?.name}</h1>
-          <p className="text-slate-600">{tool?.tagline}</p>
+        <div className="mb-12 text-center">
+          <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-xl bg-surface-container text-primary">
+            <MaterialIcon name={symbolFor(slug)} className="text-[32px]" />
+          </div>
+          <h1 className="mb-4 font-jakarta text-[32px] font-bold tracking-tight text-primary md:text-5xl md:leading-tight">{tool?.name}</h1>
+          <p className="mx-auto max-w-2xl text-lg text-text-muted">{tool?.desc}</p>
         </div>
+
+        {children}
+
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          {FEATURES.map(([icon, h, d]) => (
+            <div key={h} className="flex flex-col items-start gap-3">
+              <MaterialIcon name={icon} className="text-[28px] text-secondary" />
+              <h3 className="font-jakarta text-xl font-semibold text-primary">{h}</h3>
+              <p className="text-sm text-text-muted">{d}</p>
+            </div>
+          ))}
+        </div>
+
+        <RelatedTools slug={slug} />
       </div>
-
-      <div className="mt-8">{children}</div>
-
-      <p className="mt-6 flex items-start gap-2 text-sm text-slate-500">
-        <span className="mt-0.5 text-emerald-600">&#10003;</span>
-        100% private. Everything runs in your browser, so your files are never uploaded.
-      </p>
-
-      <RelatedTools slug={slug} />
-    </section>
+    </main>
   );
 }

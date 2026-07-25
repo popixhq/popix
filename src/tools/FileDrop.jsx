@@ -1,18 +1,16 @@
 import { useState } from "react";
-import ToolIcon from "./ToolIcon";
+import MaterialIcon from "./MaterialIcon";
 
-// Reusable file dropzone. Calls onFiles(File[]).
+// Reusable file dropzone in the Stitch style. Calls onFiles(File[]).
 export default function FileDrop({
   onFiles,
   accept = "",
   multiple = false,
-  accent = "#4E5FB5",
-  label = "Drop a file here, or click to choose",
+  label = "Click to upload or drag and drop",
   hint = "Your file stays on your device",
   files = [],
 }) {
   const [over, setOver] = useState(false);
-
   const handle = (list) => {
     const arr = Array.from(list || []);
     if (arr.length) onFiles(arr);
@@ -23,25 +21,20 @@ export default function FileDrop({
       onDragOver={(e) => { e.preventDefault(); setOver(true); }}
       onDragLeave={() => setOver(false)}
       onDrop={(e) => { e.preventDefault(); setOver(false); handle(e.dataTransfer.files); }}
-      className={`flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed px-6 py-10 text-center transition-colors ${
-        over ? "bg-black/[0.03]" : "border-slate-200 hover:border-slate-300"
+      className={`group relative flex cursor-pointer flex-col items-center gap-4 rounded-xl border-2 border-dashed p-10 text-center transition-all duration-300 ${
+        over ? "border-primary bg-surface-container-low" : "border-outline-variant bg-surface-main hover:border-primary"
       }`}
-      style={{ borderColor: over ? accent : undefined }}
     >
-      <span className="grid h-10 w-10 place-items-center rounded-lg bg-slate-100 text-slate-500">
-        <ToolIcon name="file" className="h-5 w-5" />
+      <span className="grid h-16 w-16 place-items-center rounded-full bg-surface-container text-primary transition-transform group-hover:scale-110">
+        <MaterialIcon name="upload_file" className="text-[40px]" />
       </span>
-      <span className="text-sm font-medium text-slate-700">
-        {files.length ? (files.length === 1 ? files[0].name : `${files.length} files selected`) : label}
+      <span>
+        <span className="block font-jakarta text-xl font-semibold text-primary">
+          {files.length ? (files.length === 1 ? files[0].name : `${files.length} files selected`) : label}
+        </span>
+        <span className="mt-1 block text-sm text-text-muted">{hint}</span>
       </span>
-      <span className="text-xs text-slate-400">{hint}</span>
-      <input
-        type="file"
-        accept={accept}
-        multiple={multiple}
-        className="hidden"
-        onChange={(e) => handle(e.target.files)}
-      />
+      <input type="file" accept={accept} multiple={multiple} className="absolute inset-0 h-full w-full cursor-pointer opacity-0" onChange={(e) => handle(e.target.files)} />
     </label>
   );
 }
