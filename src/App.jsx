@@ -21,6 +21,11 @@ import AppPrivacy from "./apps/AppPrivacy";
 import AppTerms from "./apps/AppTerms";
 import { IS_APPS_HOST, IS_LOCAL } from "./apps/appBase";
 
+import ToolsLayout from "./tools/ToolsLayout";
+import ToolsIndex from "./tools/ToolsIndex";
+import PdfUnlock from "./tools/PdfUnlock";
+import { IS_TOOLS_HOST } from "./tools/toolsBase";
+
 // Dark agency layout (default site)
 function SiteLayout() {
   return (
@@ -61,6 +66,31 @@ function AppsSite() {
   );
 }
 
+// On the main domain, /tools/* lives on the subdomain, send visitors there.
+function ToolsRedirect() {
+  useEffect(() => {
+    const rest = window.location.pathname.replace(/^\/tools/, "") || "/";
+    window.location.replace("https://tools.popixhq.com" + rest + window.location.search);
+  }, []);
+  return <div className="min-h-[60vh]" />;
+}
+
+// tools.popixhq.com → the Tools section mounted at the root.
+function ToolsSite() {
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<ToolsLayout />}>
+          <Route index element={<ToolsIndex />} />
+          <Route path="pdf-password-remover" element={<PdfUnlock />} />
+          <Route path="*" element={<ToolsIndex />} />
+        </Route>
+      </Routes>
+    </>
+  );
+}
+
 // popixhq.com → the agency site (with /apps redirecting to the subdomain,
 // except on localhost where we mount it at /apps for local development).
 function MainSite() {
@@ -69,16 +99,24 @@ function MainSite() {
       <ScrollToTop />
       <Routes>
         {IS_LOCAL ? (
-          <Route path="/apps" element={<AppsLayout />}>
-            <Route index element={<AppsIndex />} />
-            <Route path=":slug" element={<AppLanding />} />
-            <Route path=":slug/privacy" element={<AppPrivacy />} />
-            <Route path=":slug/terms" element={<AppTerms />} />
-          </Route>
+          <>
+            <Route path="/apps" element={<AppsLayout />}>
+              <Route index element={<AppsIndex />} />
+              <Route path=":slug" element={<AppLanding />} />
+              <Route path=":slug/privacy" element={<AppPrivacy />} />
+              <Route path=":slug/terms" element={<AppTerms />} />
+            </Route>
+            <Route path="/tools" element={<ToolsLayout />}>
+              <Route index element={<ToolsIndex />} />
+              <Route path="pdf-password-remover" element={<PdfUnlock />} />
+            </Route>
+          </>
         ) : (
           <>
             <Route path="/apps" element={<AppsRedirect />} />
             <Route path="/apps/*" element={<AppsRedirect />} />
+            <Route path="/tools" element={<ToolsRedirect />} />
+            <Route path="/tools/*" element={<ToolsRedirect />} />
           </>
         )}
 
@@ -99,5 +137,7 @@ function MainSite() {
 }
 
 export default function App() {
-  return IS_APPS_HOST ? <AppsSite /> : <MainSite />;
+  if (IS_TOOLS_HOST) return <ToolsSite />;
+  if (IS_APPS_HOST) return <AppsSite />;
+  return <MainSite />;
 }

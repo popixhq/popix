@@ -40,4 +40,6 @@
   <url><loc>https://apps.popixhq.com/pocket-play/privacy</loc><priority>0.4</priority></url>
   <url><loc>https://apps.popixhq.com/pocket-play/terms</loc><priority>0.4</priority></url>
   <url><loc>https://apps.popixhq.com/echopoem</loc><priority>0.6</priority></url>
+  <url><loc>https://tools.popixhq.com/</loc><priority>0.7</priority></url>
+  <url><loc>https://tools.popixhq.com/pdf-password-remover</loc><priority>0.6</priority></url>
 </urlset>

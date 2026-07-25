@@ -17,6 +17,7 @@ export const mainNav = [
   { label: "Services", to: "/services", mega: true },
   { label: "Industries", to: "/industries" },
   { label: "Apps", href: "https://apps.popixhq.com", external: true },
+  { label: "Tools", href: "https://tools.popixhq.com", external: true },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

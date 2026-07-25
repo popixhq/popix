@@ -16,6 +16,9 @@
   body.apps-theme {
     @apply bg-[#F4F6FB] text-[#0E1525];
   }
+  body.tools-theme {
+    @apply bg-[#F7F8FA] text-[#101828];
+  }
 }
 
 @layer components {
