@@ -6,9 +6,9 @@ import RelatedTools from "./RelatedTools";
 import { useAppSeo } from "../apps/useAppSeo";
 
 const FEATURES = [
-  ["verified_user", "Private by design", "Your files never leave your browser. Everything runs on your device."],
-  ["bolt", "Fast and free", "A high-performance engine does the work in your browser, with no sign-up."],
-  ["cloud_off", "Works offline", "No uploads and no servers, so it keeps working without a connection."],
+  ["verified_user", "Private by design", "Files are processed on your device and are never uploaded to a server."],
+  ["money_off", "Free, no sign-up", "Every tool is completely free to use, with no account required."],
+  ["bolt", "Simple and fast", "One focused tool that does its job in seconds, right in your browser."],
 ];
 
 export default function ToolShell({ slug, children, wide = false }) {

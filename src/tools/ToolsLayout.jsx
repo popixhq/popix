@@ -34,7 +34,7 @@ function ToolsHeader() {
       <div className="mx-auto flex h-16 max-w-container-max items-center justify-between px-margin-mobile md:px-margin-desktop">
         <div className="flex items-center gap-8">
           <Link to={toolLink()} className="flex items-center">
-            <BrandLogo tone="color" height={24} />
+            <BrandLogo tone="color" height={30} />
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
             <div className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
@@ -43,8 +43,8 @@ function ToolsHeader() {
               </button>
               {open && (
                 <div className="absolute left-0 top-full z-50 w-[620px] rounded-xl border border-border-subtle bg-surface-main p-5 shadow-xl">
-                  <div className="grid grid-cols-3 gap-x-5 gap-y-4">
-                    {groups.map((g) => (
+                  <div className="grid grid-cols-2 gap-x-5 gap-y-4">
+                    {groups.filter((g) => g.id.includes("PDF")).map((g) => (
                       <div key={g.id}>
                         <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">{g.label}</p>
                         <ul className="mt-2 space-y-1">
