@@ -24,9 +24,10 @@ export default function ToolsLayout() {
 
 function ToolsHeader() {
   const [open, setOpen] = useState(false);
+  const [mobile, setMobile] = useState(false);
   const groups = toolsByCategory();
   const loc = useLocation();
-  useEffect(() => setOpen(false), [loc.pathname]);
+  useEffect(() => { setOpen(false); setMobile(false); }, [loc.pathname]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border-subtle bg-surface-main shadow-sm">
@@ -66,11 +67,33 @@ function ToolsHeader() {
             <Link to="/blogs" className="py-1 text-sm font-semibold uppercase tracking-wide text-on-surface-variant transition-colors hover:text-primary">Resources</Link>
           </nav>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <Link to={toolLink()} className="hidden rounded-lg px-4 py-2 text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-primary md:block">All tools</Link>
-          <Link to="/" className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-on-primary shadow-sm transition-all hover:shadow-md active:scale-95">Agency site</Link>
+          <Link to="/" className="hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-on-primary shadow-sm transition-all hover:shadow-md active:scale-95 sm:block">Agency site</Link>
+          <button className="grid h-10 w-10 place-items-center rounded-lg text-primary hover:bg-surface-container-low md:hidden" onClick={() => setMobile((v) => !v)} aria-label="Menu">
+            <MaterialIcon name={mobile ? "close" : "menu"} className="text-[24px]" />
+          </button>
         </div>
       </div>
+
+      {mobile && (
+        <div className="border-t border-border-subtle bg-surface-main md:hidden">
+          <div className="max-h-[70vh] overflow-y-auto px-margin-mobile py-4">
+            <Link to={toolLink()} className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-primary hover:bg-surface-container-low">All tools</Link>
+            {groups.map((g) => (
+              <div key={g.id} className="mt-2">
+                <p className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wide text-text-muted">{g.label}</p>
+                {g.items.filter((t) => t.status === "live").map((t) => (
+                  <Link key={t.slug} to={toolLink(t.slug)} className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-on-surface-variant hover:bg-surface-container-low hover:text-primary">
+                    <MaterialIcon name={symbolFor(t.slug)} className="text-[18px] opacity-70" /> {t.name}
+                  </Link>
+                ))}
+              </div>
+            ))}
+            <Link to="/" className="mt-4 block rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-on-primary">Agency site</Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

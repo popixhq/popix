@@ -45,6 +45,13 @@ export default {
       },
       maxWidth: {
         wrap: "1200px",
+        "container-max": "1280px",
+      },
+      spacing: {
+        gutter: "24px",
+        "margin-mobile": "20px",
+        "margin-desktop": "40px",
+        base: "8px",
       },
       keyframes: {
         marquee: {
