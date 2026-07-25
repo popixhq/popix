@@ -32,6 +32,14 @@ import SplitPdf from "./tools/SplitPdf";
 import InvoiceGenerator from "./tools/InvoiceGenerator";
 import ExcelToPdf from "./tools/ExcelToPdf";
 import PdfToExcel from "./tools/PdfToExcel";
+import JpgToPdf from "./tools/JpgToPdf";
+import PdfToJpg from "./tools/PdfToJpg";
+import TxtToPdf from "./tools/TxtToPdf";
+import HtmlToPdf from "./tools/HtmlToPdf";
+import ZipToPdf from "./tools/ZipToPdf";
+import ProtectPdf from "./tools/ProtectPdf";
+import WatermarkPdf from "./tools/WatermarkPdf";
+import FlattenPdf from "./tools/FlattenPdf";
 import { IS_TOOLS_HOST } from "./tools/toolsBase";
 
 // Dark agency layout (default site)
@@ -81,7 +89,16 @@ function MainSite() {
           <Route path="split-pdf" element={<SplitPdf />} />
           <Route path="invoice-generator" element={<InvoiceGenerator />} />
           <Route path="excel-to-pdf" element={<ExcelToPdf />} />
+          <Route path="ods-to-pdf" element={<ExcelToPdf slug="ods-to-pdf" accept=".ods" />} />
           <Route path="pdf-to-excel" element={<PdfToExcel />} />
+          <Route path="jpg-to-pdf" element={<JpgToPdf />} />
+          <Route path="pdf-to-jpg" element={<PdfToJpg />} />
+          <Route path="txt-to-pdf" element={<TxtToPdf />} />
+          <Route path="html-to-pdf" element={<HtmlToPdf />} />
+          <Route path="zip-to-pdf" element={<ZipToPdf />} />
+          <Route path="protect-pdf" element={<ProtectPdf />} />
+          <Route path="watermark-pdf" element={<WatermarkPdf />} />
+          <Route path="flatten-pdf" element={<FlattenPdf />} />
         </Route>
 
         {/* Agency site */}

@@ -36,7 +36,7 @@ export default function Footer() {
           <FooterCol
             title="Free Tools"
             links={[
-              ...tools.filter((t) => t.status === "live").map((t) => ({ to: `/tools/${t.slug}`, label: t.name })),
+              ...tools.filter((t) => t.status === "live").slice(0, 7).map((t) => ({ to: `/tools/${t.slug}`, label: t.name })),
               { to: "/tools", label: "All tools" },
             ]}
           />

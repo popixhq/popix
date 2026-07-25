@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { toolLink } from "./toolsBase";
-import { tools } from "./toolsData";
+import { tools, toolsByCategory } from "./toolsData";
 import BrandLogo from "../components/BrandLogo";
+import ToolIcon from "./ToolIcon";
 
 export default function ToolsLayout() {
   useEffect(() => {
@@ -20,6 +21,11 @@ export default function ToolsLayout() {
 }
 
 function ToolsHeader() {
+  const [open, setOpen] = useState(false);
+  const groups = toolsByCategory();
+  const loc = useLocation();
+  useEffect(() => { setOpen(false); }, [loc.pathname]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-black/5 bg-[#F7F8FA]/85 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 sm:px-8">
@@ -27,6 +33,36 @@ function ToolsHeader() {
           <BrandLogo tone="color" height={24} suffix="/ Tools" />
         </Link>
         <nav className="flex items-center gap-1 text-sm">
+          <div className="relative hidden sm:block" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+            <button className="rounded-lg px-3 py-2 font-medium text-slate-500 hover:text-slate-900">Categories</button>
+            {open && (
+              <div className="absolute right-0 top-full z-50 mt-1 w-[640px] rounded-2xl border border-black/5 bg-white p-5 shadow-xl">
+                <div className="grid grid-cols-3 gap-x-5 gap-y-4">
+                  {groups.map((g) => (
+                    <div key={g.id}>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">{g.label}</p>
+                      <ul className="mt-2 space-y-1">
+                        {g.items.map((t) => (
+                          <li key={t.slug}>
+                            {t.status === "live" ? (
+                              <Link to={toolLink(t.slug)} className="flex items-center gap-2 rounded-md px-1 py-0.5 text-sm text-slate-600 hover:text-slate-900">
+                                <ToolIcon name={t.icon} className="h-4 w-4 opacity-70" /> {t.name}
+                              </Link>
+                            ) : (
+                              <span className="flex items-center gap-2 px-1 py-0.5 text-sm text-slate-300">
+                                <ToolIcon name={t.icon} className="h-4 w-4 opacity-40" /> {t.name}
+                                <span className="text-[10px] font-semibold">SOON</span>
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
           <NavLink
             to={toolLink()}
             end
@@ -38,10 +74,7 @@ function ToolsHeader() {
           >
             All tools
           </NavLink>
-          <Link
-            to="/"
-            className="rounded-lg px-3 py-2 font-medium text-slate-500 transition-colors hover:text-slate-900"
-          >
+          <Link to="/" className="rounded-lg px-3 py-2 font-medium text-slate-500 transition-colors hover:text-slate-900">
             popixhq.com
           </Link>
         </nav>
@@ -51,12 +84,9 @@ function ToolsHeader() {
 }
 
 function ToolsFooter() {
-  const live = tools.filter((t) => t.status === "live");
-  const cols = [
-    { title: "PDF tools", items: live.filter((t) => t.category === "PDF") },
-    { title: "Convert", items: live.filter((t) => t.category === "Convert") },
-    { title: "More", items: live.filter((t) => ["Image", "Generate"].includes(t.category)) },
-  ];
+  const cols = toolsByCategory()
+    .map((g) => ({ title: g.label, items: g.items.filter((t) => t.status === "live") }))
+    .filter((c) => c.items.length);
   return (
     <footer className="border-t border-black/5 bg-white">
       <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">

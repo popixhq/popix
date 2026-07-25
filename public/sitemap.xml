@@ -50,4 +50,13 @@
   <url><loc>https://popixhq.com/tools/invoice-generator</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/tools/excel-to-pdf</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/tools/pdf-to-excel</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/flatten-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/jpg-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/pdf-to-jpg</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/txt-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/html-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/ods-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/zip-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/protect-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/watermark-pdf</loc><priority>0.6</priority></url>
 </urlset>

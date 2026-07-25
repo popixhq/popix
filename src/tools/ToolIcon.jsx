@@ -34,6 +34,15 @@ const icons = {
   play: ["M8 5v14l11-7z"],
   file: ["M6 2h9l3 3v17H6z", "M15 2v4h4"],
   wand: ["M15 4V2M15 10v-2M11 6H9M21 6h-2", "M4 20l9-9", "M13 7l4 4"],
+  flatten: ["M12 3l8 4-8 4-8-4 8-4z", "M4 12l8 4 8-4", "M4 16.5l8 4 8-4"],
+  txt: ["M6 2h9l3 3v17H6z", "M15 2v4h4", "M9 12h6", "M9 16h6"],
+  html: ["M6 2h9l3 3v17H6z", "M15 2v4h4", "M10 12l-2 2 2 2", "M14 12l2 2-2 2"],
+  zip: ["M4 4h6l2 2h8v14H4z", "M12 10v1M12 13v1M12 16v1"],
+  word: ["M6 2h9l3 3v17H6z", "M15 2v4h4", "M8.5 12l1 5 1.5-4 1.5 4 1-5"],
+  ppt: ["M6 2h9l3 3v17H6z", "M15 2v4h4", "M9 11h5a2 2 0 0 1 0 4H9zM9 15v3"],
+  shield: ["M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z", "M9 12l2 2 4-4"],
+  stamp: ["M9 3h6v5l2 4H7l2-4z", "M5 16h14v3H5z", "M12 12v4"],
+  sign: ["M3 19c3 0 3-10 6-10s3 8 6 6", "M4 21h16"],
 };
 
 export default function ToolIcon({ name, className = "h-6 w-6" }) {

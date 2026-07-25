@@ -4,9 +4,8 @@ import FileDrop from "./FileDrop";
 import { getTool } from "./toolsData";
 import { elementToPdf } from "./helpers";
 
-const ACCENT = getTool("excel-to-pdf").accent;
-
-export default function ExcelToPdf() {
+export default function ExcelToPdf({ slug = "excel-to-pdf", accept = ".xlsx,.xls,.csv,.ods" }) {
+  const ACCENT = getTool(slug).accent;
   const [file, setFile] = useState(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -51,9 +50,9 @@ export default function ExcelToPdf() {
   }
 
   return (
-    <ToolShell slug="excel-to-pdf">
+    <ToolShell slug={slug}>
       <div className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
-        <FileDrop onFiles={onFiles} accept=".xlsx,.xls,.csv" accent={ACCENT} label="Drop a spreadsheet here, or click to choose" hint="XLSX, XLS or CSV" files={file ? [file] : []} />
+        <FileDrop onFiles={onFiles} accept={accept} accent={ACCENT} label="Drop a spreadsheet here, or click to choose" hint={accept.replace(/\./g, "").toUpperCase().replace(/,/g, ", ")} files={file ? [file] : []} />
         {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600">{error}</p>}
         {file && (
           <button onClick={convert} disabled={busy} className="mt-6 w-full rounded-xl px-5 py-3 text-sm font-semibold text-white disabled:opacity-40" style={{ background: ACCENT }}>
