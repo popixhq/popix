@@ -21,8 +21,8 @@ export default function ToolsIndex() {
           Simple tools that run in your browser.
         </h1>
         <p className="mt-4 max-w-xl text-lg text-slate-600">
-          Small, useful utilities from Polished Pixels. Your files never get uploaded —
-          everything happens on your device, so it's fast and private.
+          Small, useful utilities from Polished Pixels. Your files never get uploaded.
+          Everything happens on your device, so it's fast and private.
         </p>
       </section>
 

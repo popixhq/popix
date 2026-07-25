@@ -4,12 +4,13 @@ import { company } from "../data/nav";
 import { services } from "../data/services";
 import { industries } from "../data/industries";
 import { locations } from "../data/locations";
+import { tools } from "../tools/toolsData";
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ink-soft">
       <div className="wrap py-14">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
             <BrandLogo tone="light" height={30} />
             <p className="mt-3 max-w-sm text-sm text-white/60">{company.tagline}</p>
@@ -32,13 +33,19 @@ export default function Footer() {
           </div>
 
           <FooterCol title="Services" links={services.map((s) => ({ to: `/services/${s.slug}`, label: s.name }))} />
+          <FooterCol
+            title="Free Tools"
+            links={[
+              ...tools.filter((t) => t.status === "live").map((t) => ({ to: `/tools/${t.slug}`, label: t.name })),
+              { to: "/tools", label: "All tools" },
+            ]}
+          />
           <FooterCol title="Industries" links={industries.slice(0, 7).map((i) => ({ to: `/industries/${i.slug}`, label: i.name }))} />
           <FooterCol
             title="Company"
             links={[
               { to: "/about", label: "About" },
               { to: "/apps", label: "Apps" },
-              { to: "/tools", label: "Tools" },
               { to: "/blogs", label: "Blogs" },
               { to: "/contact", label: "Contact" },
             ]}

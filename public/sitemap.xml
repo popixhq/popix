@@ -43,4 +43,11 @@
   <url><loc>https://popixhq.com/apps/echopoem</loc><priority>0.6</priority></url>
   <url><loc>https://popixhq.com/tools</loc><priority>0.7</priority></url>
   <url><loc>https://popixhq.com/tools/pdf-password-remover</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/compress-image</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/compress-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/merge-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/split-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/invoice-generator</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/excel-to-pdf</loc><priority>0.6</priority></url>
+  <url><loc>https://popixhq.com/tools/pdf-to-excel</loc><priority>0.6</priority></url>
 </urlset>

@@ -25,6 +25,13 @@ import { IS_APPS_HOST } from "./apps/appBase";
 import ToolsLayout from "./tools/ToolsLayout";
 import ToolsIndex from "./tools/ToolsIndex";
 import PdfUnlock from "./tools/PdfUnlock";
+import ImageCompress from "./tools/ImageCompress";
+import PdfCompress from "./tools/PdfCompress";
+import MergePdf from "./tools/MergePdf";
+import SplitPdf from "./tools/SplitPdf";
+import InvoiceGenerator from "./tools/InvoiceGenerator";
+import ExcelToPdf from "./tools/ExcelToPdf";
+import PdfToExcel from "./tools/PdfToExcel";
 import { IS_TOOLS_HOST } from "./tools/toolsBase";
 
 // Dark agency layout (default site)
@@ -56,7 +63,7 @@ function MainSite() {
     <>
       <ScrollToTop />
       <Routes>
-        {/* Apps — popixhq.com/apps */}
+        {/* Apps, popixhq.com/apps */}
         <Route path="/apps" element={<AppsLayout />}>
           <Route index element={<AppsIndex />} />
           <Route path=":slug" element={<AppLanding />} />
@@ -64,10 +71,17 @@ function MainSite() {
           <Route path=":slug/terms" element={<AppTerms />} />
         </Route>
 
-        {/* Tools — popixhq.com/tools */}
+        {/* Tools, popixhq.com/tools */}
         <Route path="/tools" element={<ToolsLayout />}>
           <Route index element={<ToolsIndex />} />
           <Route path="pdf-password-remover" element={<PdfUnlock />} />
+          <Route path="compress-image" element={<ImageCompress />} />
+          <Route path="compress-pdf" element={<PdfCompress />} />
+          <Route path="merge-pdf" element={<MergePdf />} />
+          <Route path="split-pdf" element={<SplitPdf />} />
+          <Route path="invoice-generator" element={<InvoiceGenerator />} />
+          <Route path="excel-to-pdf" element={<ExcelToPdf />} />
+          <Route path="pdf-to-excel" element={<PdfToExcel />} />
         </Route>
 
         {/* Agency site */}

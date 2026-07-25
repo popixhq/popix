@@ -6,7 +6,7 @@ import ToolIcon from "./ToolIcon";
 
 const ACCENT = "#4E5FB5";
 
-// mupdf is a large WASM module — load it only when the tool is actually used.
+// mupdf is a large WASM module, loaded only when the tool is actually used.
 let mupdfPromise = null;
 const loadMupdf = () => (mupdfPromise ||= import("mupdf"));
 
@@ -197,12 +197,12 @@ export default function PdfUnlock() {
       <div className="mt-6 space-y-2 text-sm text-slate-500">
         <p className="flex items-start gap-2">
           <span className="mt-0.5 text-emerald-600">✓</span>
-          100% private — the PDF is processed in your browser and never uploaded.
+          100% private. The PDF is processed in your browser and never uploaded.
         </p>
         <p className="flex items-start gap-2">
           <span className="mt-0.5 text-emerald-600">✓</span>
-          Only works on PDFs you can already open. You provide the password — this tool
-          doesn't crack or bypass protection you don't have.
+          Only works on PDFs you can already open. You provide the password, so this tool
+          never cracks or bypasses protection you don't have.
         </p>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { toolLink, MAIN_SITE_URL } from "./toolsBase";
+import { toolLink } from "./toolsBase";
+import { tools } from "./toolsData";
 import BrandLogo from "../components/BrandLogo";
 
 export default function ToolsLayout() {
@@ -37,12 +38,12 @@ function ToolsHeader() {
           >
             All tools
           </NavLink>
-          <a
-            href={MAIN_SITE_URL}
+          <Link
+            to="/"
             className="rounded-lg px-3 py-2 font-medium text-slate-500 transition-colors hover:text-slate-900"
           >
-            popixhq.com ↗
-          </a>
+            popixhq.com
+          </Link>
         </nav>
       </div>
     </header>
@@ -50,16 +51,44 @@ function ToolsHeader() {
 }
 
 function ToolsFooter() {
+  const live = tools.filter((t) => t.status === "live");
+  const cols = [
+    { title: "PDF tools", items: live.filter((t) => t.category === "PDF") },
+    { title: "Convert", items: live.filter((t) => t.category === "Convert") },
+    { title: "More", items: live.filter((t) => ["Image", "Generate"].includes(t.category)) },
+  ];
   return (
     <footer className="border-t border-black/5 bg-white">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:px-8">
-        <span className="inline-flex items-center gap-2">
-          <span className="grid h-5 w-5 place-items-center rounded bg-emerald-500/15 text-[11px] text-emerald-600">✓</span>
-          Everything runs in your browser. Files never leave your device.
-        </span>
-        <a href={MAIN_SITE_URL} className="hover:text-slate-900">
-          © {new Date().getFullYear()} Polished Pixels
-        </a>
+      <div className="mx-auto max-w-5xl px-5 py-12 sm:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {cols.map((c) => (
+            <div key={c.title}>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">{c.title}</p>
+              <ul className="mt-3 space-y-2">
+                {c.items.map((t) => (
+                  <li key={t.slug}>
+                    <Link to={toolLink(t.slug)} className="text-sm text-slate-600 hover:text-slate-900">{t.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">Polished Pixels</p>
+            <ul className="mt-3 space-y-2">
+              {[["/", "Agency site"], ["/apps", "Apps"], ["/services", "Services"], ["/blogs", "Blogs"], ["/contact", "Contact"]].map(([to, label]) => (
+                <li key={to}><Link to={to} className="text-sm text-slate-600 hover:text-slate-900">{label}</Link></li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-black/5 pt-6 text-sm text-slate-500 sm:flex-row">
+          <span className="inline-flex items-center gap-2">
+            <span className="grid h-5 w-5 place-items-center rounded bg-emerald-500/15 text-[11px] text-emerald-600">&#10003;</span>
+            Everything runs in your browser. Files never leave your device.
+          </span>
+          <span>© {new Date().getFullYear()} Polished Pixels</span>
+        </div>
       </div>
     </footer>
   );
